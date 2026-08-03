@@ -1,0 +1,219 @@
+# LitGraph seed corpus — agent-memory subdomain. Curated 2026-07-15. All URLs verified live via WebFetch.
+# 30 items: 17 blogs / 13 repos. Repo `published` dates are best-effort era estimates.
+seeds:
+  # ---- Blogs ----
+  - url: "https://lilianweng.github.io/posts/2023-06-23-agent/"
+    source_type: blog
+    title: "LLM Powered Autonomous Agents"
+    published: "2023-06-23"
+    why: "Canonical reference; its 'Component Two: Memory' section frames short/long-term and human-memory taxonomy the whole subfield cites."
+  - url: "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+    source_type: blog
+    title: "Effective context engineering for AI agents"
+    published: "2025-09-29"
+    why: "Anthropic engineering deep-dive on compaction, structured note-taking, and external memory for long-running agents."
+  - url: "https://claude.com/blog/context-management"
+    source_type: blog
+    title: "Managing context on the Claude Developer Platform"
+    published: "2025-09-29"
+    why: "Introduces Claude's memory tool and context editing — the file-based memory-outside-the-context-window primitive."
+  - url: "https://www.langchain.com/blog/langmem-sdk-launch"
+    source_type: blog
+    title: "LangMem SDK for agent long-term memory"
+    published: "2025-02-18"
+    why: "Launch post laying out semantic/episodic/procedural memory as an SDK abstraction over LangGraph storage."
+  - url: "https://www.langchain.com/blog/memory-for-agents"
+    source_type: blog
+    title: "Memory for agents"
+    published: "2024-10-19"
+    why: "Harrison Chase's widely-cited framing of procedural/semantic/episodic agent memory mapped to human cognition."
+  - url: "https://www.trychroma.com/research/context-rot"
+    source_type: blog
+    title: "Context Rot: How Increasing Input Tokens Impacts LLM Performance"
+    published: "2025-07-14"
+    why: "Chroma research showing non-uniform long-context degradation (incl. LongMemEval) — the case for memory over raw context."
+  - url: "https://www.letta.com/blog/letta-v1-agent"
+    source_type: blog
+    title: "Rearchitecting Letta's Agent Loop: Lessons from ReAct, MemGPT, and Claude Code"
+    published: "2025-10-14"
+    why: "Flagship MemGPT successor documenting how a stateful memory-block architecture evolved for modern reasoning LLMs."
+  - url: "https://www.letta.com/blog/sleep-time-compute"
+    source_type: blog
+    title: "Sleep-time Compute"
+    published: "2025-04-21"
+    why: "Two-agent design where a background agent reorganizes memory asynchronously — a novel memory-consolidation pattern."
+  - url: "https://www.letta.com/blog/benchmarking-ai-agent-memory/"
+    source_type: blog
+    title: "Benchmarking AI Agent Memory: Is a Filesystem All You Need?"
+    published: "2025-08-12"
+    why: "Empirical finding that plain filesystem storage rivals specialized memory tools on LoCoMo — sharp critique of memory benchmarks."
+  - url: "https://www.letta.com/blog/letta-leaderboard/"
+    source_type: blog
+    title: "Letta Leaderboard: Benchmarking LLMs on Agentic Memory"
+    published: "2025-05-29"
+    why: "Evaluates how well LLMs perform memory read/write/update operations — a distinct model-capability angle on memory."
+  - url: "https://blog.getzep.com/graphiti-knowledge-graphs-for-agents/"
+    source_type: blog
+    title: "Graphiti: Temporal Knowledge Graphs for Agentic Apps"
+    published: "2024-08-28"
+    why: "Zep's own explainer of the bi-temporal knowledge-graph memory model underpinning Graphiti."
+  - url: "https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/"
+    source_type: blog
+    title: "Graphiti: Knowledge Graph Memory for an Agentic World"
+    published: "2025-03-24"
+    why: "Neo4j developer deep-dive on real-time, temporally-aware KG memory as infrastructure for autonomous agents."
+  - url: "https://mem0.ai/blog/state-of-ai-agent-memory-2026"
+    source_type: blog
+    title: "The State of AI Agent Memory 2026"
+    published: "2026-07-14"
+    why: "Survey-grade report standardizing LoCoMo/LongMemEval/BEAM and comparing ten memory approaches with metrics."
+  - url: "https://mem0.ai/blog/understanding-memory-benchmark-for-production-ai-agents"
+    source_type: blog
+    title: "Understanding Memory Benchmarks for Production AI Agents"
+    published: "2026-07-14"
+    why: "Argues standard memory benchmarks mispredict production behavior — a useful counterpoint on eval validity."
+  - url: "https://www.pinecone.io/learn/langchain-conversational-memory/"
+    source_type: blog
+    title: "Conversational Memory for LLMs with Langchain"
+    published: null
+    why: "Pinecone learning-center walkthrough of buffer/summary/window conversational-memory patterns — foundational how-to."
+  - url: "https://www.llamaindex.ai/blog/improved-long-and-short-term-memory-for-llamaindex-agents"
+    source_type: blog
+    title: "Improved Long and Short-Term Memory for LlamaIndex Agents"
+    published: "2025-05-13"
+    why: "Introduces LlamaIndex memory blocks (static, fact-extraction, vector) with priority-based token truncation."
+  - url: "https://weaviate.io/blog/ai-agents"
+    source_type: blog
+    title: "Agents Simplified: What we mean in the context of AI"
+    published: "2025-02-13"
+    why: "Weaviate primer situating short/long-term memory and vector-DB retrieval within the agent component stack."
+  # ---- Repos ----
+  - url: "https://github.com/letta-ai/letta"
+    source_type: repo
+    title: "letta (formerly MemGPT) — stateful agents framework"
+    published: "2024-09-01"
+    why: "Canonical MemGPT/Letta codebase: OS-inspired memory hierarchy and self-editing memory blocks — the reference implementation."
+  - url: "https://github.com/mem0ai/mem0"
+    source_type: repo
+    title: "mem0 — universal memory layer for AI agents"
+    published: "2024-07-01"
+    why: "Widely-adopted memory layer with multi-level (user/session/agent) memory, entity linking, and graph memory."
+  - url: "https://github.com/getzep/graphiti"
+    source_type: repo
+    title: "graphiti — real-time temporal knowledge graphs for agents"
+    published: "2024-08-01"
+    why: "The temporal-KG memory engine behind Zep; bi-temporal edges with validity intervals for evolving facts."
+  - url: "https://github.com/langchain-ai/langmem"
+    source_type: repo
+    title: "langmem — long-term memory SDK for agents"
+    published: "2025-02-01"
+    why: "LangChain's memory-management toolkit (semantic/episodic/procedural) integrated with LangGraph storage."
+  - url: "https://github.com/topoteretes/cognee"
+    source_type: repo
+    title: "cognee — memory for AI agents via knowledge graphs"
+    published: "2024-04-01"
+    why: "Open-source persistent-memory platform building queryable knowledge graphs from agent interactions."
+  - url: "https://github.com/OSU-NLP-Group/HippoRAG"
+    source_type: repo
+    title: "HippoRAG — neurobiologically-inspired long-term memory for LLMs"
+    published: "2024-05-01"
+    why: "NeurIPS 2024 framework modeling hippocampal indexing for cross-document knowledge integration; HippoRAG 2 in 2025."
+  - url: "https://github.com/snap-research/locomo"
+    source_type: repo
+    title: "LoCoMo — Evaluating Very Long-Term Conversational Memory of LLM Agents"
+    published: "2024-02-01"
+    why: "ACL 2024 benchmark dataset (long multi-session dialogues) that became a standard memory eval."
+  - url: "https://github.com/xiaowu0162/LongMemEval"
+    source_type: repo
+    title: "LongMemEval — benchmark for long-term memory of chat assistants"
+    published: "2024-10-01"
+    why: "ICLR 2025 scalable benchmark stress-testing chat-assistant long-term memory; heavily reused in memory papers."
+  - url: "https://github.com/import-myself/Membench"
+    source_type: repo
+    title: "MemBench — comprehensive evaluation of LLM-agent memory"
+    published: "2025-06-01"
+    why: "Benchmark spanning factual vs reflective memory across effectiveness/efficiency/capacity; 65K-point dataset."
+  - url: "https://github.com/agiresearch/A-mem"
+    source_type: repo
+    title: "A-MEM — agentic memory for LLM agents"
+    published: "2025-02-01"
+    why: "Zettelkasten-inspired agentic memory that dynamically organizes, links, and evolves memories."
+  - url: "https://github.com/kingjulio8238/Memary"
+    source_type: repo
+    title: "Memary — open-source memory layer for autonomous agents"
+    published: "2024-04-01"
+    why: "Emulates human memory (knowledge graph + recall) as a drop-in long-term memory layer for agents."
+  - url: "https://github.com/modelscope/MemoryScope"
+    source_type: repo
+    title: "MemoryScope / ReMe — local-first memory layer for AI agents"
+    published: "2024-09-01"
+    why: "Turns conversations and resources into file-based long-term memory with continuous indexing/consolidation."
+  - url: "https://github.com/memodb-io/memobase"
+    source_type: repo
+    title: "Memobase — user-profile-based long-term memory"
+    published: "2024-12-01"
+    why: "Profile-centric memory backend that builds durable per-user understanding across sessions."
+
+  # ---- Seed expansion 2026-07-19: five new topic families (model forensics,
+  # diffusion LLM, RL-for-LLM, foundations/DeepSeek, image-gen/omni). Non-arXiv
+  # sources only — the 120 papers went in via `ingest arxiv --ids-file`. ----
+  - url: "https://dnhkng.github.io/posts/rys/"
+    source_type: blog
+    title: "LLM Neuroanatomy: How I Topped the LLM Leaderboard Without Changing a Single Weight"
+    published: "2026-03-10"
+    why: "RYS part I — original layer-duplication experiment (Qwen2-72B) founding the weight-archaeology thread."
+  - url: "https://dnhkng.github.io/posts/rys-ii/"
+    source_type: blog
+    title: "LLM Neuroanatomy II: Modern LLM Hacking and hints of a Universal Language?"
+    published: "2026-03-22"
+    why: "RYS layer-duplication forensics on modern LLMs; maps encode/reason/decode phases in the weight stack."
+  - url: "https://dnhkng.github.io/posts/sapir-whorf/"
+    source_type: blog
+    title: "LLM Neuroanatomy III: Why RYS Works — The Language-Agnostic Middle"
+    published: "2026-03-26"
+    why: "Mechanistic explanation of RYS via language-agnostic middle-layer semantic space."
+  - url: "https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook"
+    source_type: blog
+    title: "The Smol Training Playbook"
+    published: "2025-09-12"
+    why: "HF's end-to-end LLM training playbook (SmolLM lineage) — canonical practical training-recipe source."
+  - url: "https://huggingface.co/spaces/nanotron/ultrascale-playbook"
+    source_type: blog
+    title: "The Ultra-Scale Playbook"
+    published: "2024-06-18"
+    why: "HF's companion playbook on scaling LLM training to GPU clusters."
+  - url: "https://github.com/KellerJordan/modded-nanogpt"
+    source_type: repo
+    title: "modded-nanogpt: NanoGPT speedrun"
+    published: "2024-06-01"
+    why: "Open GPT-2 training speedrun — living log of training-recipe innovations (Muon, FP8, QK-norm)."
+  - url: "https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/"
+    source_type: blog
+    title: "DiffusionGemma: an experimental Gemma model for faster text generation"
+    published: "2026-06-10"
+    why: "Google's open-weights MoE text-diffusion model (block-parallel decoding); no arXiv paper, blog is canonical."
+  - url: "https://deepmind.google/models/gemini-diffusion/"
+    source_type: blog
+    title: "Gemini Diffusion"
+    published: "2025-05-20"
+    why: "DeepMind's experimental frontier text-diffusion model — direct precursor to DiffusionGemma."
+  - url: "https://huggingface.co/ideogram-ai/ideogram-4-fp8"
+    source_type: blog
+    title: "Ideogram 4 (open-weight release, ideogram-4-fp8 model card)"
+    published: "2026-06-03"
+    why: "9.3B open-weight single-stream DiT; JSON prompting, bbox layout control, SOTA text rendering."
+  - url: "https://qwenlm.github.io/blog/qwen-vlo/"
+    source_type: blog
+    title: "Qwen VLo: From Understanding the World to Depicting It"
+    published: "2025-06-26"
+    why: "Unified understanding+generation preview — inputs text/images, outputs both text and images."
+  - url: "https://bfl.ai/announcements/24-08-01-bfl"
+    source_type: blog
+    title: "Announcing Black Forest Labs (FLUX.1 launch)"
+    published: "2024-08-01"
+    why: "FLUX.1 release — the rectified-flow open-weight family that displaced SD as the OSS default."
+  - url: "https://openai.com/index/introducing-4o-image-generation/"
+    source_type: blog
+    title: "Introducing 4o Image Generation"
+    published: "2025-03-25"
+    why: "GPT-4o native image generation — flagship omni-model image output in production."

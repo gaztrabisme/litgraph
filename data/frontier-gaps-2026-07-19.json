@@ -1,0 +1,3327 @@
+[
+ {
+  "candidate_id": "FG:qwen:005",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Optimizing Reflexion's self-reflection policy via Agentic RL for high-difficulty mathematical reasoning on AIME 2024, moving beyond heuristic linguistic feedback.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2303.11366"
+   ],
+   "quotes": [
+    "We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback.",
+    "Reflexion converts binary or scalar feedback from the environment into verbal feedback in the form of a textual summary, which is then added as additional context for the LLM agent in the next episode."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document applies Agentic RL to optimize Reflexion's self-reflection policy specifically on the AIME 2024 benchmark. While arxiv:2509.02547 surveys Agentic RL for reasoning and mentions reflection as an RL-optimizable component, it does not report this specific application or evaluation. arxiv:2303.11366 (Reflexion) uses heuristic feedback and is not evaluated on AIME 2024.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2509.02547",
+      "quote": "Central to our thesis is that reinforcement learning serves as the critical mechanism for transforming these capabilities from static, heuristic modules into adaptive, robust agentic behavior."
+     },
+     {
+      "doc_id": "arxiv:2303.11366",
+      "quote": "Reflexion converts binary or scalar feedback from the environment into verbal feedback in the form of a textual summary, which is then added as additional context for the LLM agent in the next episode."
+     },
+     {
+      "doc_id": "arxiv:2303.11366",
+      "quote": "We perform experiments on (1) decision-making tasks to test sequential action choices over long trajectories, (2) reasoning tasks to test knowledge-intensive, single-step generation improvement, and (3) programming tasks."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The indexed documents (e.g., arxiv:2512.23343) discuss reinforcement learning for memory management (e.g., summarization policies) but do not apply Agentic RL to optimize Reflexion's self-reflection policy specifically for high-difficulty mathematical reasoning on AIME 2024. The gap remains unaddressed in the corpus.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.23343",
+      "quote": "Lu et al. (193); Yuan et al. (354) established the theoretical viability of this direction by demonstrating that summarization policies can be end-to-end optimized via reinforcement learning to maximize long-term rewards."
+     },
+     {
+      "doc_id": "arxiv:2512.23343",
+      "quote": "Reflexion (244) abandoned the traditional model weight update and instead guided the agents to reflect on itself and store it in contextual memory through a language feedback mechanism"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:019",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Create a benchmark for catastrophic interference and forgetting in parametric agent memory under self-evolution, since existing memory benchmarks (BEAM, EvoMemBench) evaluate external stores and never measure weight-level interference as fast-weight updates accumulate.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2510.27246",
+    "arxiv:2606.04536"
+   ],
+   "quotes": [
+    "we construct BEAM, a new benchmark comprising 100 conversations and 2,000 validated questions.",
+    "absorbs distilled supervision into fast LoRA weights via lightweight online updates, genuinely altering its future behavior within a single episode"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.04536 (TMEM), which implements parametric self-evolution via online LoRA updates but evaluates only task performance (F1/EM) on standard benchmarks, not catastrophic interference or forgetting of prior capabilities. No indexed document provides a benchmark specifically measuring weight-level interference in this setting.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "We evaluate four memory strategies... on LoCoMo, LongMemEval-S, multi-objective search, and CL-Bench... We report three-run evaluations under fixed settings and use the run average as the main score."
+     },
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "TMEM obtains the strongest overall results... The LongMemEval-S gains are especially clear: over the best explicit-memory baseline, TMEM improves by +4.79 F1 / +2.34 EM with Qwen3-4B"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2510.27246 (BEAM) benchmarks long-term memory in LLMs but only evaluates external memory stores (episodic, working, scratchpad) and never measures weight-level catastrophic interference from fast-weight updates. The candidate gap—a benchmark for catastrophic forgetting in parametric agent memory under self-evolution—remains unfilled in the indexed corpus.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.27246",
+      "quote": "we construct BEAM, a new benchmark comprising 100 conversations and 2,000 validated questions."
+     },
+     {
+      "doc_id": "arxiv:2510.27246",
+      "quote": "the LIGHT framework ... integrates three complementary memories: (1) episodic memory, a long-term index of the full conversation used for retrieval; (2) working memory, capturing the most recent user–assistant turns; and (3) a scratchpad"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:003",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Applying AMARIS's adaptive rubric retrieval mechanism to dynamically select relevant historical segments from long-context inputs in DeepSeek-V4-Pro for reasoning tasks on BABILong, replacing static attention with rubric-guided sparse retrieval.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2512.02556",
+    "arxiv:2605.18592"
+   ],
+   "quotes": [
+    "AMARIS stores rollout analyses, step-level summaries, and rubric update records in a persistent evaluation memory, then retrieves recent and semantically relevant history to revise rubrics.",
+    "We introduce DSA, an efficient attention mechanism that substantially reduces computational complexity while preserving model performance in long-context scenarios."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies AMARIS's rubric retrieval to DeepSeek models; arxiv:2512.02556 (DeepSeek-V3.2) uses DSA (Sparse Attention), a distinct mechanism, and does not mention AMARIS.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.02556",
+      "quote": "The key technical breakthroughs of DeepSeek-V3.2 are as follows: (1) DeepSeek Sparse Attention (DSA): We introduce DSA, an efficient attention mechanism that substantially reduces computational complexity while preserving model performance in long-context scenarios."
+     },
+     {
+      "doc_id": "arxiv:2512.02556",
+      "quote": "DeepSeek-V3.2 uses exactly the same architecture as DeepSeek-V3.2-Exp. Compared with DeepSeek-V3.1-Terminus, the only architectural modification of DeepSeek-V3.2 is the introduction of DeepSeek Sparse Attention (DSA) through continued training."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2512.02556 which introduces DSA sparse attention and uses rubrics for reward modeling in RL, but does not apply AMARIS's adaptive rubric retrieval mechanism to dynamically select historical segments for reasoning tasks on BABILong. The document does not mention AMARIS, BABILong, or adaptive rubric retrieval for long-context sparse attention.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.02556",
+      "quote": "We introduce DSA, an efficient attention mechanism that substantially reduces computational complexity while preserving model performance in long-context scenarios."
+     },
+     {
+      "doc_id": "arxiv:2512.02556",
+      "quote": "For general tasks, we employ a generative reward model where each prompt has its own rubrics for evaluation."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:001",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrate Dynamic Sparse Attention (DSA) mechanisms from DeepSeek-V4-Pro into the memory retrieval module of agent memory systems like Mem0 to optimize latency for multi-hop reasoning tasks on 2WikiMultiHopQA.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2504.19413",
+    "arxiv:2512.02556"
+   ],
+   "quotes": [
+    "We introduce DSA, an efficient attention mechanism that substantially reduces computational complexity while preserving model performance in long-context scenarios.",
+    "We introduce Mem0, a scalable memory-centric architecture that addresses this issue by dynamically extracting, consolidating, and retrieving salient information from ongoing conversations.",
+    "Empirical results demonstrate that our methods consistently outperform all existing memory systems across four question categories: single-hop, temporal, multi-hop, and open-domain."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The indexed Mem0 paper (arxiv:2504.19413) uses dense embeddings for retrieval and does not employ Dynamic Sparse Attention (DSA); no other indexed document demonstrates the integration of DSA into Mem0 or similar agent memory systems for 2WikiMultiHopQA.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "The vector database employs dense embeddings to facilitate efficient similarity search during the update phase."
+     },
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "We introduce Mem0, a scalable memory-centric architecture that addresses this issue by dynamically extracting, consolidating, and retrieving salient information from ongoing conversations."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The index contains no document describing Dynamic Sparse Attention (DSA) or its integration into Mem0. The Mem0 paper (arxiv:2504.19413) uses LLM-based extraction and retrieval but does not mention DSA or any sparse attention mechanism. The DSA paper (DeepSeek-V4-Pro) is absent from the index. Thus no evidence refutes the gap.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "We introduce Mem0, a scalable memory-centric architecture that addresses this issue by dynamically extracting, consolidating, and retrieving salient information from ongoing conversations."
+     },
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "The memory retrieval functionality in implements a dual-approach strategy for optimal information access."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:006",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Applying Sealed Joint Search (SJS), a decentralized iterative search protocol used in Agora for financial alpha mining, to multi-hop web browsing agents on the BrowseComp benchmark to improve success rate through commitment-based verification.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.19135",
+    "arxiv:2606.29194"
+   ],
+   "quotes": [
+    "Sealed Joint Search (SJS) is the framework we propose: a small set of structural conditions on the information flow inside an autonomous-discovery system that prevent the joint search from collapsing into self-confirmation while keeping the external evaluator sealed.",
+    "This study develops a technical taxonomy to classify and analyze LLM agent communication protocols."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No document in the index applies Sealed Joint Search to BrowseComp or multi-hop web browsing. arxiv:2606.19135 analyzes the Agora protocol (which employs SJS) within a taxonomy of communication protocols, but does not demonstrate its application to web browsing agents or the BrowseComp benchmark.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.19135",
+      "quote": "This study develops a technical taxonomy to classify and analyze LLM agent communication protocols."
+     },
+     {
+      "doc_id": "arxiv:2606.19135",
+      "quote": "Among the sample that is later examined, the Agora protocol [102] stands out for its scientific rigor and for emphasizing fundamental principles needed in an efficient, scalable, and robust design."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.19135 which mentions Agora as a protocol but only in the context of a taxonomy of LLM agent communication protocols; it does not apply Sealed Joint Search or any commitment-based verification to multi-hop web browsing agents or the BrowseComp benchmark. No document in the index demonstrates such an application.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.19135",
+      "quote": "Among the sample that is later examined, the Agora protocol [102] stands out for its scientific rigor and for emphasizing fundamental principles needed in an efficient, scalable, and robust design."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:007",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrate BAGEL's bottleneck-free shared self-attention mechanism into ActiveMem or Agora to replace external retrieval-based long-term memory with internal soft memory, leveraging BAGEL's ability to maintain lossless context interaction across modalities.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2505.14683"
+   ],
+   "quotes": [
+    "Unlike some prior approaches [73, 57, 69, 18] that introduce bottleneck connectors between generation and understanding modules, our design enables long-context interaction between multimodal understanding and generation through shared self-attention operations."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "ActiveMem (arxiv:2606.10532) is the target system for the proposed integration, but it relies on a \"Distributed Memory System\" with \"distilled semantic gists\" rather than BAGEL's shared self-attention, and no in-index document describes such an integration.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.10532",
+      "quote": "ActiveMem consists of two primary modules: a high-level Planner and a Distributed Memory System."
+     },
+     {
+      "doc_id": "arxiv:2606.10532",
+      "quote": "The Planner utilizes distilled semantic gists to execute reasoning."
+     },
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "our design enables long-context interaction between multimodal understanding and generation through shared self-attention operations."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2505.14683 (BAGEL) introduces bottleneck-free shared self-attention but only for multimodal understanding/generation, not for agent long-term memory. The paper does not mention ActiveMem, Agora, or any agent memory architecture, and the mechanism is not applied to replace external retrieval-based memory. Thus, the proposed integration remains unexplored in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "Unlike some prior approaches [73, 57, 69, 18] that introduce bottleneck connectors between generation and understanding modules, our design enables long-context interaction between multimodal understanding and generation through shared self-attention operations."
+     },
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "BAGEL is a unified, decoder-only model pretrained on trillions of tokens curated from large-scale interleaved text, image, video, and web data."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:008",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Apply BAGEL's bottleneck-free shared self-attention to detect and correct temporal inconsistencies in long-term conversational memories stored by ActiveMem or Agora, leveraging its superior long-context reasoning to identify hallucinated or contradictory memory entries.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2505.14683"
+   ],
+   "quotes": [
+    "Unlike some prior approaches [73, 57, 69, 18] that introduce bottleneck connectors between generation and understanding modules, our design enables long-context interaction between multimodal understanding and generation through shared self-attention operations."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No document in the index applies BAGEL's bottleneck-free shared self-attention to detecting or correcting temporal inconsistencies in ActiveMem or Agora. BAGEL is indexed primarily for multimodal generation/understanding, and no edge links it to memory consistency tasks.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "Unlike some prior approaches [73, 57, 69, 18] that introduce bottleneck connectors between generation and understanding modules, our design enables long-context interaction between multimodal understanding and generation through shared self-attention operations."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is the BAGEL paper itself (arxiv:2505.14683), which introduces bottleneck-free shared self-attention for multimodal understanding and generation but never applies it to memory inconsistency detection in conversational agents like ActiveMem or Agora. The paper focuses on visual generation and understanding, not on temporal consistency of textual memories. Thus the proposed transfer remains unexplored in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "Unlike some prior approaches [73, 57, 69, 18] that introduce bottleneck connectors between generation and understanding modules, our design enables long-context interaction between multimodal understanding and generation through shared self-attention operations."
+     },
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "BAGEL is a unified, decoder-only model pretrained on trillions of tokens curated from large-scale interleaved text, image, video, and web data."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:009",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrate an LLM-as-a-Judge module into long-term conversational memory systems (specifically A-TMA and ACE) to evaluate the semantic relevance of retrieved memories to the current conversational state, moving beyond static retrieval metrics like Answer Relevancy.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.14817",
+    "arxiv:2607.01935"
+   ],
+   "quotes": [
+    "We propose A-TMA, a state aware overlay for existing memory systems that keeps superseded and transition records, builds evidence packets for the requested state view, and exposes current, historical, and transition labels to QA.",
+    "Reading materials are generated using three prompting strategies (Chain-of-Thought, zero-shot, and few-shot), and the LLM-as-a-Judge module automatically evaluates answer quality and alignment with the desired readability level."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "abstain",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.14817, which uses LLM-as-a-Judge to evaluate answer relevance and groundedness in a reading content generation system, but does not apply it to evaluating semantic relevance of retrieved memories in A-TMA or ACE memory systems. The paper's LLM-as-a-Judge is used for output quality assessment, not for memory retrieval evaluation in conversational agents.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.14817",
+      "quote": "Reading materials are generated using three prompting strategies (Chain-of-Thought, zero-shot, and few-shot), and the LLM-as-a-Judge module automatically evaluates answer quality and alignment with the desired readability level."
+     },
+     {
+      "doc_id": "arxiv:2606.14817",
+      "quote": "The evaluation process employed by us considers not only the difference between the actual FKGL score of the generated content and the target score, but also two additional metrics: Relevance and Groundedness."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:012",
+  "template": "T1",
+  "status": "survived",
+  "claim": "ALER-TI's Latent Embedding Alignment can improve retrieval accuracy in long-term conversational memory by aligning corrupted user queries with historical context.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2607.07640"
+   ],
+   "quotes": [
+    "The core of ALER-TI is Latent Embedding Alignment (LEA), which mitigates the representation mismatch between corrupted queries and complete historical candidates."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The indexed document arxiv:2607.07640 applies Latent Embedding Alignment to time series imputation, not conversational memory. No other in-index document applies this method or a similar alignment technique to corrupted queries in long-term conversational memory, so the transfer gap remains open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.07640",
+      "quote": "ALER-TI: Aligned Latent Embedding Retrieval for Time Series Imputation"
+     },
+     {
+      "doc_id": "arxiv:2607.07640",
+      "quote": "Time series data collected from real-world sensors and monitoring systems are frequently affected by missing values due to sensor malfunctions, transmission failures, or human errors"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2607.07640, which introduces LEA for time series imputation but does not apply it to long-term conversational memory. The gap of applying LEA to conversational memory retrieval remains unaddressed in the indexed corpus.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.07640",
+      "quote": "The core of ALER-TI is Latent Embedding Alignment (LEA), which mitigates the representation mismatch between corrupted queries and complete historical candidates."
+     },
+     {
+      "doc_id": "arxiv:2607.07640",
+      "quote": "ALER-TI is a retrieval-augmented framework for time series imputation centered on Latent Embedding Alignment (LEA)."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:013",
+  "template": "T1",
+  "status": "survived",
+  "claim": "BatteryLake's evidence-grounded extraction with explicit abstention can reduce hallucinations in long-term conversational memory systems by ensuring retrieved memories are grounded and abstaining when no relevant memory is found.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2607.09762"
+   ],
+   "quotes": [
+    "The first capability combines evidence-grounded metadata extraction with explicit abstention, and schema mapping with program synthesis for dataset-specific converters.",
+    "Each agent output must be grounded in verbatim source evidence. If such evidence is unavailable, the agent abstains rather than producing an unsupported result."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document applies evidence-grounded extraction with explicit abstention to long-term conversational memory; BatteryLake (arxiv:2607.09762) uses this method for battery data curation, not conversational memory.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.09762",
+      "quote": "BatteryLake: Agentic, Physics-Grounded Curation of Heterogeneous Battery Aging Data and Benchmarking"
+     },
+     {
+      "doc_id": "arxiv:2607.09762",
+      "quote": "We instantiate these principles in BatteryLake, a governed lakehouse and public benchmark for battery aging data."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The index contains no document that applies evidence-grounded extraction with explicit abstention to long-term conversational memory. The nearest miss is that many conversational memory systems (e.g., Mem0, Reflexion, SCM) use retrieval-based memory but none employ explicit abstention when no relevant memory is found. BatteryLake itself is applied to battery dataset curation, not conversational memory. Thus the transfer gap remains open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.09762",
+      "quote": "The first capability combines evidence-grounded metadata extraction with explicit abstention, and schema mapping with program synthesis for dataset-specific converters."
+     },
+     {
+      "doc_id": "arxiv:2607.09762",
+      "quote": "Each agent output must be grounded in verbatim source evidence. If such evidence is unavailable, the agent abstains rather than producing an unsupported result."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:014",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Applying Communicative Language Symbolism Routing (CLSR) to multimodal math reasoning tasks where the symbolic language includes visual primitives, evaluated using F1-score metrics for visual element correctness in generated aids.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.29354"
+   ],
+   "quotes": [
+    "We propose Communicative Language Symbolism Routing (CLSR), a test-time framework in which multiple LLM agents autonomously invent, evolve, and share compact Language Symbolism Frameworks (LSFs), while a latent-free router adaptively selects and composes these languages per query to optimize the accuracy–token trade-off."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The index shows that CLSR (arxiv:2606.29354) is applied to ScienceQA, a multimodal dataset, but it evaluates performance using standard inference accuracy for final answers, not F1-score metrics for visual element correctness. No other document in the index applies CLSR to multimodal math reasoning with this specific visual-F1 evaluation protocol.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "For each benchmark, we report: (i) inference accuracy (%)"
+     },
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "science QA with short final answers (ScienceQA)"
+     },
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "We evaluate symbolic-language reasoning on seven widely used reasoning benchmarks that span knowledge-intensive QA, multi-hop retrieval-style QA, and mathematical problem solving: ... (vi) science QA with short final answers (ScienceQA)"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.29354 which applies CLSR to math reasoning (GSM8K, MATH, AIME) but only in text-based form, without any visual primitives or multimodal inputs, and uses accuracy/token metrics not F1 for visual elements. The gap of applying CLSR to multimodal math reasoning with visual primitives and F1 evaluation remains unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "We evaluate symbolic-language reasoning on seven widely used reasoning benchmarks that span knowledge-intensive QA, multi-hop retrieval-style QA, and mathematical problem solving: (i) broad-domain factual and professional reasoning (MMLU-Pro), (ii) expert-level science QA with strong adversarial difficulty (GPQA), (iii) grade-school multi-step arithmetic (GSM8K), (iv) competition-style proof and derivation (MATH500), (v) AIME (21-24), (vi) science QA with short final answers (ScienceQA), and (vii) multi-hop question answering (HotpotQA)."
+     },
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "For each benchmark, we report: (i) inference accuracy (%)"
+     },
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "the number of generated tokens emitted by the inference LLM and the LLM-router"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:015",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Using Communicative Language Symbolism Routing (CLSR) to optimize the generation of math visual aids for retrieval efficiency, evaluated using F1-score metrics for visual element detection.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.29354"
+   ],
+   "quotes": [
+    "We propose Communicative Language Symbolism Routing (CLSR), a test-time framework in which multiple LLM agents autonomously invent, evolve, and share compact Language Symbolism Frameworks (LSFs), while a latent-free router adaptively selects and composes these languages per query to optimize the accuracy–token trade-off."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss, arxiv:2606.29354, applies CLSR to textual mathematical reasoning (e.g., GSM8K, MATH) to optimize token efficiency and accuracy, but does not address the generation of math visual aids or evaluate visual element detection using F1-scores.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "We design experiments on a diverse set of challenging tasks, including ... mathematical problem solving (Cobbe et al., 2021; Hendrycks et al., 2021; Veeraboina, 2023) ... CLSR improves the Pareto frontier of accuracy versus generated tokens"
+     },
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "optimize the accuracy–token trade-off"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.29354, which applies CLSR to mathematical problem solving (MATH-500, AIME21-24) but only in text-based reasoning, not for generating math visual aids or evaluating with F1-score for visual element detection. The paper's evaluation metrics are accuracy and token count, not retrieval efficiency or F1-score for visual elements. Thus the gap stands unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "We design experiments on a diverse set of challenging tasks, including knowledge-intensive QA ... mathematical problem solving (Cobbe et al., 2021; Hendrycks et al., 2021; Veeraboina, 2023), and multi-hop reasoning"
+     },
+     {
+      "doc_id": "arxiv:2606.29354",
+      "quote": "CLSR improves the Pareto frontier of accuracy versus generated tokens"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:016",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Evaluate long-term memory architectures (e.g., LongMem, MemoryBank) on the AMA-Bench agent memory benchmark to assess their performance in multi-turn tool-using scenarios rather than static NLP tasks.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2305.10250",
+    "arxiv:2306.07174"
+   ],
+   "quotes": [
+    "To address this, we propose a framework, Language Models Augmented with Long-Term Memory (LongMem), which enables LLMs to memorize long history.",
+    "Therefore, we propose MemoryBank, a novel memory mechanism tailored for LLMs."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document evaluates LongMem or MemoryBank on AMA-Bench; the benchmark itself is not indexed, and LongMem's evaluations in this corpus are limited to static NLP tasks (e.g., SQuAD, 2WikiMultiHopQA), leaving multi-turn tool-using scenarios unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2306.07174",
+      "quote": "we evaluate the 3-shot ICL on question-answering tasks of SQuAD."
+     },
+     {
+      "doc_id": "arxiv:2305.11462",
+      "quote": "LTM is tested on ... WikiText-2 dataset"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The index contains LongMem (arxiv:2306.07174) and MemoryBank (arxiv:2305.10250) but evaluates them only on static NLP tasks like language modeling and in-context learning, not on any agent memory benchmark like AMA-Bench. No document in the index applies these methods to multi-turn tool-using scenarios, so the gap remains open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2305.10250",
+      "quote": "We exemplify application of MemoryBank through the creation of an LLM-based chatbot named SiliconFriend in a long-term AI Companion scenario."
+     },
+     {
+      "doc_id": "arxiv:2306.07174",
+      "quote": "We evaluate our proposed LongMem model on different tasks based on the demanded in-memory long-contexts: a) long-text language modeling and language understanding... b) infinite-length in-context learning"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:019",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Decoupling MedRLM's Clinical Evidence Graph Memory into a dedicated 'Memory Agent' collective, inspired by Agentic LLM Collectives architectures, to enable independent memory updating and conflict resolution separate from the recursive reasoning loop.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.20164"
+   ],
+   "quotes": [
+    "It further introduces a Clinical Evidence Graph Memory to connect patient-specific observations with retrieved evidence, standardized definitions, sensor-derived biomarkers, and referral criteria."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document combines 'Agentic LLM Collectives' with 'Clinical Evidence Graph Memory' for decoupled updating and conflict resolution. arxiv:2606.20164 introduces the graph memory but integrates it into a recursive controller rather than a separate agent collective, and arxiv:2607.01047 discusses collectives but not in a clinical memory context.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.20164",
+      "quote": "The framework coordinates specialized agents for clinical text, longitudinal EHR, medical imaging, physiological sensor signals, guideline retrieval, uncertainty auditing, and referral planning. It further introduces a Clinical Evidence Graph Memory to connect patient-specific observations with retrieved evidence..."
+     },
+     {
+      "doc_id": "arxiv:2606.20164",
+      "quote": "MedRLM recursively decomposes a clinical query into modality-specific subtasks, invokes specialized agents for text, EHR, image, sensor, guideline, and referral reasoning, constructs an auditable Clinical Evidence Graph Memory, and synthesizes a risk-aware referral recommendation."
+     },
+     {
+      "doc_id": "arxiv:2607.01047",
+      "quote": "Collectives of LLM-based agents can exhibit dynamics that are central to ALife, including adaptation, coordination, norm formation, and cultural transmission."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The index contains no document that decouples MedRLM's Clinical Evidence Graph Memory into a dedicated 'Memory Agent' collective. The closest work, arxiv:2606.20164, integrates the graph memory within the recursive reasoning loop rather than separating it into an independent agentic collective. No in-index evidence refutes the proposed gap.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.20164",
+      "quote": "It further introduces a Clinical Evidence Graph Memory to connect patient-specific observations with retrieved evidence, standardized definitions, sensor-derived biomarkers, and referral criteria."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:020",
+  "template": "T1",
+  "status": "survived",
+  "claim": "No existing work evaluates the causal impact of RAG retrieval noise (precision/recall errors) on the end-to-end task success rates of multi-step agentic systems, as current RAG evaluations (e.g., ChartWalker) use static accuracy metrics and agentic benchmarks (e.g., AgentOdyssey) ignore external retrieval or lack retrieval-fidelity correlation.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.23997",
+    "arxiv:2606.24893"
+   ],
+   "quotes": [
+    "Extensive evaluations across representative RAG paradigms reveal significant performance gaps.",
+    "We further propose a multifaceted evaluation methodology that measures not only game progress but also offers diagnostic tests on world knowledge acquisition, episodic memory, object and action exploration, action diversity, and model cost."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.24893 evaluates RAG-based agents in multi-step settings but measures only end-to-end task progress and diagnostic abilities, without isolating or analyzing the causal impact of retrieval precision/recall errors on success rates.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.24893",
+      "quote": "We evaluate diverse agent paradigms in the generated games... RAG Agents store observation-reasoning-action tuples in an external database of embedding-text pairs. During inference, the agent retrieves several relevant entries and appends them to the model context for decision-making."
+     },
+     {
+      "doc_id": "arxiv:2606.24893",
+      "quote": "Our experimental results reveal critical limits in agents’ key abilities, as well as factors that influence their meaningful horizon."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is ChartWalker (arxiv:2606.23997), which evaluates RAG pipelines with static accuracy metrics (e.g., correctness rate, retrieval recall) but does not assess the causal impact of retrieval noise on end-to-end agentic task success. The candidate's claim that no existing work evaluates this causal relationship remains unrefuted in the indexed corpus.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.23997",
+      "quote": "Extensive evaluations across representative RAG paradigms reveal significant performance gaps."
+     },
+     {
+      "doc_id": "arxiv:2606.23997",
+      "quote": "the best-performing model achieves only a 64% correctness rate in answering the cross-chart problems."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:021",
+  "template": "T1",
+  "status": "survived",
+  "claim": "No existing work integrates external Retrieval-Augmented Generation (RAG) as a dynamic working memory buffer to stabilize or accelerate test-time continual learning in long-horizon agents, as current approaches either rely on internal weight updates (e.g., AgentOdyssey) or static retrieval without agentic adaptation loops.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.23997",
+    "arxiv:2606.24893"
+   ],
+   "quotes": [
+    "To evaluate these key abilities of test-time continual learning agents, we introduce AgentOdyssey, a novel evaluation framework that procedurally generates open-ended text games with rich entities, world dynamics, and long-horizon tasks.",
+    "To address this, we propose ChartWalker, a novel framework for constructing challenging cross-chart RAG tasks."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.23997 (ChartWalker) employs an agentic RAG loop with iterative retrieval and a history-based memory buffer for POMDP state, but it is trained via offline PPO reinforcement learning rather than test-time continual learning; it does not use RAG as a dynamic working memory buffer to stabilize or accelerate online adaptation during inference.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.23997",
+      "quote": "The ChartWalker agent is a VLM-based search agent that navigates a chart knowledge graph to iteratively acquire evidence and perform step-wise reasoning... We formulate the problem as a partially observable Markov decision process (POMDP) and compress the agent’s memory into the environment observation... Specifically, the observation provided to the agent summarizes the current search state... as well as a simplified record of past search history..."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: ChartWalker-Agent (arxiv:2606.23997) uses an agentic RAG loop with memory and reinforcement learning, but it is applied to cross-chart QA, not to test-time continual learning in long-horizon agents. It does not involve dynamic memory buffers for stabilizing or accelerating weight updates, nor does it address the continual learning setting where the agent must adapt to new tasks over time. Therefore, the claimed gap remains unaddressed in the indexed corpus.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.23997",
+      "quote": "Recent advances in agentic retrieval-augmented generation have shown that treating retrieval as a sequential decision-making process can substantially improve long-horizon reasoning Singh et al. (2025b). By allowing models to iteratively observe the source corpus, maintain searching memory, and adapt a dynamic retrieval strategy, agent-based approaches offer a promising mechanism for handling the complex tasks. Motivated by these developments Geng et al. (2025); Lu et al. (2025), we design the ChartWalker Agent, which serves as a baseline for better benchmarking cross-chart long-horizon reasoning."
+     },
+     {
+      "doc_id": "arxiv:2606.23997",
+      "quote": "The ChartWalker agent is a VLM-based search agent that navigates a chart knowledge graph to iteratively acquire evidence and perform step-wise reasoning, functioning as a diagnostic and analytical tool for studying cross-chart RAG behaviors and informing future research."
+     },
+     {
+      "doc_id": "arxiv:2606.23997",
+      "quote": "During exploration, the agent observes the current KG context along with retrieved evidence, takes an action to further explore the KG, and receives a scalar reward from the environment at each turn. The training objective is to maximize the expected discounted return Schulman et al. (2017). In our setting, the agent follows a policy parameterized by a VLM, which autoregressively outputs a token sequence as the action."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:023",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Using EnergyEvals to benchmark the retrieval energy efficiency of graph-based memory structures (like A-Mem) versus vector-only stores in Mem0-style agents over long-horizon tasks, identifying the 'energy crossover point' where graph complexity outweighs retrieval benefits.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2504.19413",
+    "repo:agiresearch/A-mem"
+   ],
+   "quotes": [
+    "Building on this foundation, we further propose an enhanced variant that leverages graph-based memory representations to capture complex relational structures among conversational elements.",
+    "Our project introduces an innovative **Agentic Memory** system that revolutionizes how LLM agents manage and utilize their memories"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2504.19413 which evaluates computational overhead via latency and token cost compared to full-context baselines, but does not perform energy-specific benchmarking (EnergyEvals) nor identify an 'energy crossover point' between graph-based and vector-only memory structures.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "Beyond accuracy gains, we also markedly reduce computational overhead compared to the full-context approach. In particular, Mem0 attains a 91% lower p95 latency and saves more than 90% token cost"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2504.19413 which compares Mem0 (vector) and A-Mem (graph) on token consumption and latency, but does not measure energy efficiency or identify an energy crossover point. The paper reports '91% lower p95 latency' and 'saves more than 90% token cost' for Mem0 vs full-context, but does not compute energy per retrieval or compare graph vs vector directly on energy. Thus the specific gap of benchmarking energy efficiency and finding a crossover point remains unaddressed.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "Beyond accuracy gains, we also markedly reduce computational overhead compared to the full-context approach. In particular, Mem0 attains a 91% lower p95 latency and saves more than 90% token cost"
+     },
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "We further propose an enhanced variant that leverages graph-based memory representations to capture complex relational structures among conversational elements."
+     },
+     {
+      "doc_id": "arxiv:2504.19413",
+      "quote": "We systematically track Token Consumption... We further monitor Latency, (i) search latency... and (ii) total latency"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:024",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Applying the six-method Adapter Protocol from Lethe to a DeepSeek-V4-Pro base model to optimize retrieval fusion in Hybrid Retrieval Pipelines.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.15903"
+   ],
+   "quotes": [
+    "ForgetEval and all adapters are released under MIT.",
+    "Admission is corroborated by 10-annotator IAA (Fleiss’ ) and a 77-case external-authored subset (four blind contributors) that replicates the canonicalization asymmetry and amplifies the joint-placement lift ( pt)."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The index contains no record of 'DeepSeek-V4-Pro' nor any application of the Adapter Protocol to retrieval fusion; the nearest miss is arxiv:2606.15903, which applies the protocol (using DeepSeek-V3) exclusively for evaluating forgetting (control-plane mutations), not retrieval optimization.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.15903",
+      "quote": "A six-method control-plane algebra: three mandatory recall-plane primitives (reset, inscribe, recall_texts) and three optional control-plane mutations (supersede, release, purge) with N/A scoring"
+     },
+     {
+      "doc_id": "arxiv:2606.15903",
+      "quote": "different model family than the DeepSeek-V3 Lethe+LLM hook"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "infeasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.15903 applies the Adapter Protocol to DeepSeek-V3, not DeepSeek-V4-Pro. The paper states 'the LLM hook is also DeepSeek-V3' and 'substituting Qwen-2.5-72B for DeepSeek-V3 yields a -pt lift on both backends', but no mention of DeepSeek-V4-Pro. No in-index document applies the protocol to DeepSeek-V4-Pro, so the transfer gap stands unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.15903",
+      "quote": "the LLM hook is also DeepSeek-V3"
+     },
+     {
+      "doc_id": "arxiv:2606.15903",
+      "quote": "substituting Qwen-2.5-72B for DeepSeek-V3 yields a -pt lift on both backends"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:025",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrating a Hybrid Retrieval Pipeline into the BAGEL unified multimodal model to ground its diffusion-based generation in external knowledge.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2505.14683",
+    "arxiv:2606.15903"
+   ],
+   "quotes": [
+    "In this work, we introduce BAGEL, an open-source foundational model that natively supports multimodal understanding and generation.",
+    "None probe whether a memory system can be commanded to forget."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document integrates a Hybrid Retrieval Pipeline into the BAGEL model; BAGEL relies on internal pretraining data and does not use external retrieval, and no other paper in the index applies hybrid retrieval to BAGEL's diffusion generation.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "BAGEL is a unified, decoder-only model pretrained on trillions of tokens curated from large-scale interleaved text, image, video, and web data."
+     },
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "We argue that unified models have the capacity to learn richer multi-modal capabilities from large-scale interleaved multi-modal data—emergent abilities that are not captured by traditional benchmarks."
+     },
+     {
+      "doc_id": "arxiv:2606.10381",
+      "quote": "The framework combines a hybrid retriever, integrating sparse lexical and dense semantic retrieval, with an agentic reasoning module for query decomposition, evidence expansion, and grounded answer generation."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document applies a hybrid retrieval pipeline to BAGEL or any other unified multimodal generation model to ground diffusion-based generation in external knowledge. The BAGEL paper (arxiv:2505.14683) relies solely on training data, not retrieval, and no other paper in the index bridges retrieval and diffusion generation for multimodal models.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2505.14683",
+      "quote": "In this work, we introduce BAGEL, an open-source foundational model that natively supports multimodal understanding and generation."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:026",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrating Reflexion-style iterative self-correction into the Agentic Clinical Information Extraction (ACIE) pipeline to specifically resolve temporal reasoning errors in date and table extraction.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.19602"
+   ],
+   "quotes": [
+    "We deploy ACIE (Agentic Clinical Information Extraction) at University Medicine Essen: an on-premise agentic RAG pipeline that reasons over complete patient contexts and grounds every answer in source passages for clinician verification.",
+    "Standard retrieval-augmented generation fails on this data, mishandling temporal reasoning, cross-document dependencies, and missing metadata."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "abstain",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.05658 applies a self-reflective layer (Reflexion-style) to an agentic RAG pipeline but does not target clinical information extraction or temporal reasoning errors in dates and tables. The gap remains unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.05658",
+      "quote": "The Answer Evaluator Agent adds a self-reflective layer that critiques generated responses."
+     },
+     {
+      "doc_id": "arxiv:2606.05658",
+      "quote": "We evaluate the system across two complementary datasets: a domain-specific DevOps knowledge base and the multi-hop reasoning benchmark MuSiQue."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:027",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Replacing the separate OCR and text-LLM pipeline in Agentic Clinical Information Extraction (ACIE) with Qwen3-Omni's native multimodal reasoning, augmented by Reflexion-style self-correction for complex table and date extraction.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.19602"
+   ],
+   "quotes": [
+    "We deploy ACIE (Agentic Clinical Information Extraction) at University Medicine Essen: an on-premise agentic RAG pipeline that reasons over complete patient contexts and grounds every answer in source passages for clinician verification."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The index contains no evidence that Qwen3-Omni has been applied to Agentic Clinical Information Extraction (ACIE) or clinical table/date extraction with Reflexion-style self-correction. The existing ACIE system (`arxiv:2606.19602`) uses Qwen 3.6 35B-A3B and PaddleOCR-VL, identifying dates and tables as weak points but not resolving them with the proposed multimodal-reflexion approach.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.19602",
+      "quote": "The extraction model is Qwen 3.6 35B-A3B... Scanned documents are processed by PaddleOCR-VL 1.5"
+     },
+     {
+      "doc_id": "arxiv:2606.19602",
+      "quote": "the two weak types are dates at 84.3% and tabular fields at 79.8%... The driver of error is thus how much temporal reasoning the answer demands over the full record, assembling a timeline for tables or selecting the right event for dates."
+     },
+     {
+      "doc_id": "arxiv:2606.19602",
+      "quote": "The agent iterates until it has gathered sufficient evidence, then returns an answer with every value attributed to specific source passages."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "abstain",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:028",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrate Attention Tracker-based pruning with DeepSeek-V4-Pro's MoE routing to minimize energy consumption during ReAct-style tool-use loops in EnergyEvals benchmarks.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2401.06066",
+    "arxiv:2606.26346"
+   ],
+   "quotes": [
+    "To address this gap, we introduce EnergyEvals, an evaluation framework for tool-augmented LLM agents on real-world energy analytics tasks.",
+    "In response, we propose the DeepSeekMoE architecture towards ultimate expert specialization."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The indexed document arxiv:2401.06066 (DeepSeekMoE) proposes expert specialization via fine-grained segmentation and shared isolation, but does not mention EnergyEvals, ReAct tool-use loops, or Attention Tracker-based pruning. No other indexed document was found to combine these specific methods and benchmarks.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2401.06066",
+      "quote": "In response, we propose the DeepSeekMoE architecture towards ultimate expert specialization. It involves two principal strategies: (1) finely segmenting the experts into ones and activating from them... (2) isolating experts as shared ones..."
+     },
+     {
+      "doc_id": "arxiv:2401.06066",
+      "quote": "We conduct evaluations on a wide range of benchmarks covering various types of tasks... Language Modeling... Pile... HellaSwag... PIQA... ARC... RACE... HumanEval... MBPP... TriviaQA... NaturalQuestions"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "infeasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2401.06066 (DeepSeekMoE) which discusses MoE routing for expert specialization but does not address attention trackers, pruning, ReAct-style tool-use loops, or energy consumption. No indexed document proposes or evaluates combining attention-based pruning with MoE routing for energy efficiency in tool-use loops, so the gap stands unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2401.06066",
+      "quote": "In response, we propose the DeepSeekMoE architecture towards ultimate expert specialization."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:029",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Apply Evo-Attacker to stress-test DeepSeek-V4-Pro's MoE routing stability against load imbalance and expert specialization failures during multi-step tool-use in EnergyEvals.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2401.06066",
+    "arxiv:2606.26346"
+   ],
+   "quotes": [
+    "To address this gap, we introduce EnergyEvals, an evaluation framework for tool-augmented LLM agents on real-world energy analytics tasks.",
+    "In response, we propose the DeepSeekMoE architecture towards ultimate expert specialization."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document applies Evo-Attacker to stress-test MoE routing stability on EnergyEvals. Evo-Attacker (arxiv:2605.25389) targets long-horizon tool attacks on general benchmarks, while EnergyEvals (arxiv:2606.26346) evaluates agent accuracy on energy tasks without adversarial routing stress tests.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2605.25389",
+      "quote": "Evo-Attacker, a unified framework that formulates the tool attack as a memory-augmented reinforcement learning (RL) process."
+     },
+     {
+      "doc_id": "arxiv:2605.25389",
+      "quote": "We employ five benchmarks across three major domains: (1) Code Generation: HumanEval ... (2) Deep Research: DeepResearch Bench (DRB) ... (3) Web Interaction: WebArena ... WebShop."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "To address this gap, we introduce EnergyEvals, an evaluation framework for tool-augmented LLM agents on real-world energy analytics tasks."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "We evaluate both closed-source and open-source LLMs... DeepSeek-V3.2"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2401.06066 discusses load balance and expert specialization in DeepSeekMoE but does not apply Evo-Attacker or any adversarial stress-testing to routing stability during multi-step tool-use in EnergyEvals. The EnergyEvals paper (arxiv:2606.26346) introduces the benchmark but does not mention Evo-Attacker or DeepSeek-V4-Pro. Thus, the proposed transfer remains unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2401.06066",
+      "quote": "In response, we propose the DeepSeekMoE architecture towards ultimate expert specialization."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "To address this gap, we introduce EnergyEvals, an evaluation framework for tool-augmented LLM agents on real-world energy analytics tasks."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:030",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrating CARVE's chunk-level adaptive retrieval mechanism into the BrainAgent hierarchical multi-agent framework for Qwen3-Omni to enhance multimodal reasoning success rates.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.13141",
+    "arxiv:2606.25400"
+   ],
+   "quotes": [
+    "We address this gap by introducing V-RAGBench, a dedicated benchmark designed to make retrieval and generation in VideoRAG faithfully measurable both in isolation and in their interaction.",
+    "To accelerate the democratization of brain signal understanding, we draw inspiration from Large Language Models (LLMs) to introduce BrainAgent, an LLM-driven multi-agent framework designed to ground abstract natural language intent into rigorous, executable, and end-to-end processing pipelines."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document integrates CARVE (a video-specific chunk-level adaptive retrieval method from arxiv:2606.13141) into BrainAgent (a brain signal processing framework from arxiv:2606.25400). The two works operate in disjoint domains (VideoRAG vs. Brain Signal Understanding), and no evidence exists of their combination or transfer.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.13141",
+      "quote": "We therefore propose CARVE (Chunk-Aware Reranking for Video Evidence) in Figure 1, a novel framework that exploits multi-modal cross-encoder signals to assign each candidate chunk its winning configuration based on its query relevance."
+     },
+     {
+      "doc_id": "arxiv:2606.25400",
+      "quote": "To accelerate the democratization of brain signal understanding, we draw inspiration from Large Language Models (LLMs) to introduce BrainAgent, an LLM-driven multi-agent framework designed to ground abstract natural language intent into rigorous, executable, and end-to-end processing pipelines."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "infeasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: CARVE (arxiv:2606.13141) applies chunk-level adaptive retrieval to VideoRAG using Qwen3-VL models, but does not integrate with BrainAgent or Qwen3-Omni, and BrainAgent (arxiv:2606.25400) focuses on brain signal understanding, not general multimodal reasoning. The proposed combination remains unexplored in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.13141",
+      "quote": "We therefore propose CARVE (Chunk-Aware Reranking for Video Evidence) in Figure 1, a novel framework that exploits multi-modal cross-encoder signals to assign each candidate chunk its winning configuration based on its query relevance."
+     },
+     {
+      "doc_id": "arxiv:2606.25400",
+      "quote": "To accelerate the democratization of brain signal understanding, we draw inspiration from Large Language Models (LLMs) to introduce BrainAgent, an LLM-driven multi-agent framework designed to ground abstract natural language intent into rigorous, executable, and end-to-end processing pipelines."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:031",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrate BAGEL's retrieval-augmented evaluation metrics (e.g., AUROC of gist relevance) into the training loop of ActiveMem's Memorizer to optimize semantic gist distillation quality independently of end-to-end task accuracy.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.10532"
+   ],
+   "quotes": [
+    "Specifically, a high-level Planner utilizes distilled semantic gists to execute reasoning, while a lightweight, distributed memory system operates in parallel to actively accumulate and consolidate these gists throughout the task."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "ActiveMem (arxiv:2606.10532) trains its Memorizer using standard supervised next-token prediction on teacher-generated gists, without incorporating BAGEL-style retrieval-augmented evaluation metrics (e.g., AUROC of gist relevance) into its training loop.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.10532",
+      "quote": "Given the supervised triples ..., we fine-tune the Memorizer with a conditional next-token prediction objective: [Equation 5] ... This objective teaches the Memorizer to generate concise gists that are grounded in the retrieved document and conditioned on the Planner’s query."
+     },
+     {
+      "doc_id": "arxiv:2606.10532",
+      "quote": "We evaluate the performance of the model using three metrics. LasJ (LLM-as-a-Judge) measures answer correctness ... PFLOPs measures total inference-time computational cost ... ACT (Accuracy-Cost Trade-off) is a composite metric..."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "ActiveMem (arxiv:2606.10532) trains its Memorizer via supervised fine-tuning with teacher-generated gists and a conditional next-token prediction objective, but does not incorporate any retrieval-augmented evaluation metric like BAGEL's AUROC of gist relevance into the training loop. No indexed document proposes or implements such integration.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.10532",
+      "quote": "We therefore construct supervised data from real agent interactions to train the Memorizer for concise and content-grounded distillation."
+     },
+     {
+      "doc_id": "arxiv:2606.10532",
+      "quote": "Given the supervised triples, we fine-tune the Memorizer with a conditional next-token prediction objective"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:032",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Apply Agentic-DPO's Policy-Preserving Augmentation to optimize the memory retrieval and compression policies in ActiveMem for long-term conversational continuity.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2607.10601"
+   ],
+   "quotes": [
+    "To avoid mixing both policy and schema in preference learning, we introduce Policy-Preserving Augmentation (PPA), which renders the same latent trajectory under multiple schemas while keeping the expert policy fixed."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies Policy-Preserving Augmentation to memory retrieval or compression; Agentic-DPO (arxiv:2607.10601) restricts PPA to agent action schemas (tool calls, GUI actions), and no other indexed paper extends this to memory systems.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.10601",
+      "quote": "For tool-use agents, we render the same tool call in formats such as ReAct-style calls and JSON-list calls."
+     },
+     {
+      "doc_id": "arxiv:2607.10601",
+      "quote": "The second PPA family is state-context rewrites. These transformations change the rendered history before the current expert step while preserving the current target action."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2607.10601 introduces PPA for tool-use agent policy optimization but does not apply it to memory retrieval or compression policies in ActiveMem or any conversational memory system. The paper focuses on action-level DPO for tool/Web agents, not on memory policy optimization.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.10601",
+      "quote": "We propose Agentic-DPO, a lightweight offline agent policy optimization method that turns expert trajectories into state-conditioned preference supervision."
+     },
+     {
+      "doc_id": "arxiv:2607.10601",
+      "quote": "Policy-Preserving Augmentation (PPA), which renders the same latent trajectory under multiple schemas while keeping the expert policy fixed."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:034",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Adapt D2R-RAG's resource-aware diagnostic-repair mechanism to multi-step agent trajectories in domain-specific workflows (e.g., energy market analytics) to correct tool-use and reasoning errors under latency constraints, rather than just retrieval-side factual errors in static RAG.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.26346",
+    "arxiv:2606.29377"
+   ],
+   "quotes": [
+    "We propose D2R-RAG (Diagnose-to-Repair RAG), a model-agnostic and resource-aware framework that combines lightweight failure diagnosis with adaptive repair.",
+    "D2R-RAG derives interpretable failure signatures from observable signals in the query, retrieved evidence, and generated response, and then selects from a small set of corrective actions under explicit latency and VRAM constraints.",
+    "We present an empirical study of tool-augmented LLM agents on real-world energy market analytics tasks."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The indexed energy market agent paper (arxiv:2606.26346) provides an evaluation benchmark and failure mode analysis but does not implement or apply a diagnostic-repair mechanism like D2R-RAG to correct agent errors, leaving the proposed transfer gap open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "We present an empirical study of tool-augmented LLM agents on real-world energy market analytics tasks."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "Output traces and raw evaluation reports are included in the GitHub repository... enabling the failure mode analyses in Section 6"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.26346 studies multi-step tool-augmented agent trajectories in energy market analytics but does not employ D2R-RAG's diagnostic-repair mechanism. arxiv:2606.29377 (D2R-RAG) is limited to static RAG pipelines (FEVER, HotpotQA) and explicitly focuses on retrieval-side factual errors, not agent trajectory errors. No document in the index adapts D2R-RAG to multi-step agent trajectories, so the gap stands.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.29377",
+      "quote": "We propose D2R-RAG (Diagnose-to-Repair RAG), a model-agnostic and resource-aware framework that combines lightweight failure diagnosis with adaptive repair."
+     },
+     {
+      "doc_id": "arxiv:2606.29377",
+      "quote": "Experiments on FEVER and HotpotQA show that D2R-RAG improves reliability over recent baselines and achieves better accuracy–efficiency trade-offs across multiple compute budgets."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "We present an empirical study of tool-augmented LLM agents on real-world energy market analytics tasks."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "Agents are implemented as ReAct-style reasoning-and-acting agents that execute an iterative Thought Action Observation loop."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:035",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Develop a unified evaluation protocol that applies EnergyEvals' 'Approach Correctness' and 'Source Validity' metrics to multi-hop reasoning tasks like HotpotQA using tool-augmented agents, to assess if agents can maintain factual validity and correct reasoning steps across multiple hops while using tools.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.26346"
+   ],
+   "quotes": [
+    "To assess the performance of the agents along multiple dimensions, we employ a multi-dimensional evaluation protocol that scores responses on approach correctness, answer accuracy, attribute alignment, and source validity, with category-aware routing to match scoring criteria to question type."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "arxiv:2606.26346 defines the 'Approach Correctness' and 'Source Validity' metrics but applies them exclusively to real-world energy analytics tasks, not to general multi-hop QA benchmarks like HotpotQA. No indexed document demonstrates the application of these specific EnergyEvals metrics to HotpotQA.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "We present an empirical study of tool-augmented LLM agents on real-world energy market analytics tasks."
+     },
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "To assess the performance of the agents along multiple dimensions, we employ a multi-dimensional evaluation protocol that scores responses on approach correctness, answer accuracy, attribute alignment, and source validity"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.26346 introduces EnergyEvals with 'Approach Correctness' and 'Source Validity' metrics for tool-augmented agents, but only on energy analytics tasks, not on multi-hop reasoning tasks like HotpotQA. The paper does not evaluate on HotpotQA or any general multi-hop dataset, so the proposed transfer remains unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.26346",
+      "quote": "To assess the performance of the agents along multiple dimensions, we employ a multi-dimensional evaluation protocol that scores responses on approach correctness, answer accuracy, attribute alignment, and source validity, with category-aware routing to match scoring criteria to question type."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:037",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrate the Self-Controlled Memory (SCM) framework's LLM-based summarization and retrieval mechanism from Mem0 (arxiv:2304.13343) into MedRLM's recursive clinical controller (arxiv:2606.20164) to stabilize long-context reasoning in community-to-tertiary referral tasks.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2304.13343",
+    "arxiv:2606.20164"
+   ],
+   "quotes": [
+    "To address this limitation, in this paper, we propose the Self-Controlled Memory (SCM) framework to enhance the ability of LLMs to maintain long-term memory and recall relevant information.",
+    "This paper proposes MedRLM, a Recursive Multimodal Health Intelligence framework for long-context clinical reasoning, sensor-guided screening, and community-to-tertiary referral support."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "abstain",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies SCM's summarization/retrieval to clinical controllers. The SCM paper (arxiv:2304.13343) evaluates only on dialogues, book summarization, and meeting summarization, not clinical reasoning. MedRLM (arxiv:2606.20164) is absent from the index. Thus, the integration gap remains unaddressed.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2304.13343",
+      "quote": "The annotated dataset covers three tasks: long-term dialogues, book summarization, and meeting summarization."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:038",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Integrating TRIAGE-style trustworthiness metrics (e.g., Logical Consistency, Source Coverage) into the salience-based memory selection process of BudgetMem to prevent retention of factually incorrect but high-salience memories in long-term conversational agents.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2511.04919",
+    "arxiv:2607.03447"
+   ],
+   "quotes": [
+    "We introduce BudgetMem, a training-free architecture that selectively retains only high-salience content under explicit memory budgets.",
+    "We introduce TRIAGE, a stage-aware instrumentation framework for automated, document-grounded graph-RAG that asks not only whether the underlying graph can be trusted but at what cost it can be queried."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document integrates TRIAGE-style trust metrics into BudgetMem's salience-based memory selection. BudgetMem uses only interpretable features (entity density, TF-IDF) for retention, while TRIAGE is applied to Graph-RAG, leaving the proposed transfer to long-term conversational agents unexplored.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.04919",
+      "quote": "BudgetMem makes chunk-level keep-or-discard decisions using interpretable features: entity density, TF-IDF scores, position bias, and discourse markers."
+     },
+     {
+      "doc_id": "arxiv:2607.03447",
+      "quote": "We introduce TRIAGE, a stage-aware instrumentation framework for automated, document-grounded graph-RAG that asks not only whether the underlying graph can be trusted but at what cost it can be queried."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2511.04919 (BudgetMem) which uses salience-based memory selection but does not incorporate any trustworthiness metrics like Logical Consistency or Source Coverage. The paper focuses on features like entity density, TF-IDF, position bias, numerical density, and discourse markers for salience scoring, with no mechanism to filter out factually incorrect but high-salience content. No document in the index integrates TRIAGE-style trustworthiness metrics into BudgetMem or similar memory selection systems.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.04919",
+      "quote": "Each chunk receives a weighted score from five interpretable features: Entity density (weight 0.2), TF-IDF importance (weight 0.2), Position bias (weight 0.15), Numerical density (weight 0.15), Discourse markers (weight 0.1) and question presence (weight 0.1)."
+     },
+     {
+      "doc_id": "arxiv:2511.04919",
+      "quote": "The failure mode involves distributed information... Questions targeting inherently low-salience content also suffer... A subtler failure arises from uniform salience distributions."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:039",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Applying BudgetMem's selective retention strategy to the instrumentation process of TRIAGE, such that expensive trust metrics (e.g., Logical Consistency, Source Coverage) are computed only for high-salience or high-risk segments of the Graph-RAG pipeline, enabling scalable trust verification in long-term conversational settings.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2511.04919",
+    "arxiv:2607.03447"
+   ],
+   "quotes": [
+    "We introduce BudgetMem, a training-free architecture that selectively retains only high-salience content under explicit memory budgets.",
+    "We introduce TRIAGE, a stage-aware instrumentation framework for automated, document-grounded graph-RAG that asks not only whether the underlying graph can be trusted but at what cost it can be queried."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies BudgetMem's chunk-level salience retention to gate TRIAGE's trust instrumentation. TRIAGE is described as 'stage-aware' and assesses cost, but does not explicitly use ingestion-time salience filtering (like BudgetMem's entity density/TF-IDF) to selectively skip expensive trust metrics.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.04919",
+      "quote": "BudgetMem, a training-free architecture that selectively retains only high-salience content under explicit memory budgets... We introduce BudgetMem, a training-free architecture that selectively retains only high-salience content under explicit memory budgets."
+     },
+     {
+      "doc_id": "arxiv:2607.03447",
+      "quote": "We introduce TRIAGE, a stage-aware instrumentation framework for automated, document-grounded graph-RAG that asks not only whether the underlying graph can be trusted but at what cost it can be queried."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss, arxiv:2607.03447 (TRIAGE), defines stage-specific trust metrics (e.g., Logical Consistency, Source Coverage) but computes them uniformly across all pipeline segments without selective retention under a budget. It does not reference BudgetMem or any salience-based gating of metric computation. Therefore the proposed combination remains unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2607.03447",
+      "quote": "We introduce TRIAGE, a stage-aware instrumentation framework for automated, document-grounded graph-RAG that asks not only whether the underlying graph can be trusted but at what cost it can be queried."
+     },
+     {
+      "doc_id": "arxiv:2607.03447",
+      "quote": "At KG Implementation: Triple Confidence Score (), Source Coverage Ratio (), Extraction Consistency (), Cross-Source Corroboration (), Schema Compliance (), Constraint Violation Rate (), Canonicalization Success Rate (), and Evidence Attribution Rate ()."
+     },
+     {
+      "doc_id": "arxiv:2511.04919",
+      "quote": "We introduce BudgetMem, a training-free architecture that selectively retains only high-salience content under explicit memory budgets."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:041",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Adapting GroundShot's quality-aware shot scheduling and VLM critic mechanism to filter and prioritize memory items in long-term conversational memory systems, ensuring only high-quality, entity-grounded facts are stored to mitigate noise and redundancy.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.20799"
+   ],
+   "quotes": [
+    "GroundShot builds an entity-level visual memory online from accepted generated shots: it schedules shots’ generation order by their expected usefulness as entity references, grounds entities from generated videos, verifies their reliability before adding them to memory, and retrieves suitable entity references from memory before each shot is generated."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No document in the index applies GroundShot's quality-aware scheduling or VLM critic to long-term conversational memory. Existing methods like RecallM (arxiv:2307.02738) use POS tagging and temporal graph updates for memory management, lacking the specific VLM-based entity reliability verification and scheduling mechanism proposed.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.20799",
+      "quote": "GroundShot combines three key mechanisms. Quality-aware shot scheduling identifies which entities appear in which shots... A VLM critic samples frames from and compares them with the shot description, selected references, and expected entity set."
+     },
+     {
+      "doc_id": "arxiv:2307.02738",
+      "quote": "Our current approach utilizes a Part of Speech (POS) tagger to identify all nouns as concept labels... We employ a temporal memory mechanism in the graph database to model temporal relations between concepts... Context revision is unfortunately the most computationally expensive step in the knowledge update pipeline, however, we only have to perform context revisions periodically"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is GroundShot itself (arxiv:2606.20799), which uses quality-aware shot scheduling and a VLM critic for entity-level visual memory in multi-shot video generation. However, it does not apply these mechanisms to long-term conversational memory systems; its domain is video generation, and its quality checks are tailored to visual entity references (e.g., face visibility, frontality, sharpness) rather than textual conversational facts. No indexed document adapts this approach to conversational memory filtering.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.20799",
+      "quote": "GroundShot builds an entity-level visual memory online from accepted generated shots: it schedules shots’ generation order by their expected usefulness as entity references, grounds entities from generated videos, verifies their reliability before adding them to memory, and retrieves suitable entity references from memory before each shot is generated."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:001",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Use DeepSeek-OCR-style optical 2D context compression (rendering text history to vision tokens) as the storage substrate for long-term agent memory, exploiting its natural fidelity-decay-with-compression to implement biological-style forgetting curves in a memory store.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2510.18234",
+    "arxiv:2605.26252"
+   ],
+   "quotes": [
+    "This shows considerable promise for research areas such as historical long-context compression and memory forgetting mechanisms in LLMs.",
+    "Experiments show that when the number of text tokens is within 10 times that of vision tokens (i.e., a compression ratio < 10), the model can achieve decoding (OCR) precision of 97%.",
+    "Current memory designs do not preserve these properties."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2510.18234, which introduces DeepSeek-OCR for optical compression and notes its potential for \"memory forgetting mechanisms,\" but it does not implement an agent memory system or demonstrate biological-style forgetting curves in a long-term agent memory store; it remains a proof-of-concept for compression, not an applied memory architecture.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.18234",
+      "quote": "This shows considerable promise for research areas such as historical long-context compression and memory forgetting mechanisms in LLMs."
+     },
+     {
+      "doc_id": "arxiv:2510.18234",
+      "quote": "We present DeepSeek-OCR as an initial investigation into the feasibility of compressing long contexts via optical 2D mapping."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2510.18234 proposes the idea of using vision-text compression for forgetting mechanisms and states 'the second issue will become a feature of the forgetting mechanism', but it does not implement or evaluate this in the context of a long-term agent memory store with biological-style forgetting curves. The paper remains a proof-of-concept for OCR compression, not a memory system. Thus the claimed gap of applying this to agent memory with fidelity-decay-as-forgetting is unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.18234",
+      "quote": "the second issue will become a feature of the forgetting mechanism"
+     },
+     {
+      "doc_id": "arxiv:2510.18234",
+      "quote": "These results indicate that optical contexts compression is a very promising and worthwhile research direction, and this approach does not bring any overhead because it can leverage VLM infrastructure, as multimodal systems inherently require an additional vision encoder."
+     },
+     {
+      "doc_id": "arxiv:2510.18234",
+      "quote": "This shows considerable promise for research areas such as historical long-context compression and memory forgetting mechanisms in LLMs."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:002",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Build the read/write/consolidation engine of an agent memory system on a discrete diffusion language model, using parallel bidirectional denoising to reconstruct/consolidate memories in one shot rather than autoregressive summarization.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.04536",
+    "arxiv:2606.06474"
+   ],
+   "quotes": [
+    "All existing RAG approaches for diffusion language models are restricted to this single-shot paradigm (Yu et al., 2026; Fang et al., 2026).",
+    "We propose Self-Augmenting Retrieval for Diffusion Language Models (Sardi), the first framework to condition retrieval on intermediate diffusion states.",
+    "Summary-based methods periodically compress the history into textual states, reducing context length but introducing a lossy bottleneck that can discard fine-grained facts."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "abstain",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.04536 (TMEM), which builds a parametric memory system with fast LoRA weights, but it uses standard autoregressive LLMs, not discrete diffusion language models. It does not use parallel bidirectional denoising for memory consolidation; instead, it uses online SFT on LoRA weights. No indexed document applies discrete diffusion LMs to agent memory systems.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "The generated output is sampled from the adaptive policy"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:003",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Align diffusion language models (LLaDA2.0-scale dLLMs) with RL/GRPO/RLVR instead of only adapted DPO, deriving a group-relative policy-gradient objective compatible with the masked-reconstruction loss.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.19348"
+   ],
+   "quotes": [
+    "Reinforcement Learning (RL) is applied using Group Relative Policy Optimization (GRPO) [dsr1], which further optimizes the model for domain-aligned behaviors guided by reward models tailored to specific success criteria."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The cited document arxiv:2606.19348 applies GRPO to DeepSeek-V4, a Mixture-of-Experts Transformer model with attention mechanisms, not to diffusion language models (dLLMs) using masked-reconstruction loss. The gap regarding RL alignment for dLLMs remains unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.19348",
+      "quote": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-of-Experts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters... both supporting a context length of one million tokens."
+     },
+     {
+      "doc_id": "arxiv:2606.19348",
+      "quote": "The post-training pipeline of DeepSeek-V4 series features a two-stage paradigm... Reinforcement Learning (RL) is applied using Group Relative Policy Optimization (GRPO)..."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2606.19348 applies GRPO to autoregressive LLMs (DeepSeek-V4), not to diffusion language models. The document explicitly describes post-training for standard LLMs, and no in-index document applies RL/GRPO/RLVR to dLLMs like LLaDA2.0.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.19348",
+      "quote": "Reinforcement Learning (RL) is applied using Group Relative Policy Optimization (GRPO) [dsr1], which further optimizes the model for domain-aligned behaviors guided by reward models tailored to specific success criteria."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:004",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Provide certified / cryptographic-provenance defenses against multimodal (image, audio, video) memory poisoning, extending SMSR's HMAC-signed-memory + smoothed-retrieval certificate from text KBs to multimodal agent memory stores.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2512.03627",
+    "arxiv:2606.12703"
+   ],
+   "quotes": [
+    "We call this the Multi-Session Memory Poisoning (MSMP) threat and observe that no existing defence provides a formal security certificate against it.",
+    "Component 1 applies HMAC-SHA256 provenance tagging at write time, creating a cryptographically hard boundary against unsigned injection.",
+    "MemVerse, a model-agnostic, plug-and-play memory framework that combines fast parametric recall with hierarchical retrieval, enabling scalable and adaptive multimodal intelligence."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2512.03627 (MemVerse), which provides a multimodal memory framework but lacks any cryptographic provenance or security certificates, leaving the gap for certified multimodal defenses open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.03627",
+      "quote": "MemVerse, a model-agnostic, plug-and-play memory framework that combines fast parametric recall with hierarchical retrieval... enabling scalable and adaptive multimodal intelligence."
+     },
+     {
+      "doc_id": "arxiv:2512.03627",
+      "quote": "To handle arbitrary multimodal inputs... we first employ pretrained MLLMs to convert the raw data into textual representations."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: MemVerse (arxiv:2512.03627) is a multimodal memory framework but entirely lacks cryptographic-provenance defenses such as HMAC signing. The paper focuses on retrieval and parametric memory, with no mention of security or poisoning defenses. Thus the gap stands unaddressed in the index.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.03627",
+      "quote": "We introduce MemVerse, a model-agnostic, plug-and-play memory framework that combines fast parametric recall with hierarchical retrieval, enabling scalable and adaptive multimodal intelligence."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:005",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Study machine unlearning and deletion-fidelity for the parametric tier of self-evolving agent memory (distilled LoRA fast-weights in TMEM/MemVerse), where a user 'forget me' request must remove experience baked into weights, not just external records.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.04536",
+    "arxiv:2606.10062"
+   ],
+   "quotes": [
+    "we call deployment-time memorization: recoverable user information stored not in model parameters, but in the external memory pipeline wrapped around a foundation model.",
+    "We introduce a Forgetting Residue Score (FRS) that measures post-deletion leakage separately across memory tiers",
+    "it distills the current session into grounded QA-style supervision and applies a lightweight online SFT update"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The indexed paper arxiv:2606.10062 explicitly excludes the parametric tier from its deletion-fidelity analysis, focusing solely on external memory pipelines ('stored not in model parameters'), and thus does not address unlearning for distilled LoRA fast-weights.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.10062",
+      "quote": "We study this surface as deployment-time memorization: a privacy–utility frontier measured by Personalization Recall (PR) and Adversarial Extraction Rate (AER) across three memory-design knobs... plus a Forgetting Residue Score (FRS) quantifying whether deleted information remains recoverable from derived memory tiers."
+     },
+     {
+      "doc_id": "arxiv:2606.10062",
+      "quote": "Existing memorization research primarily studies parametric memorization: what training examples are retained in model weights... We study this missing surface, which we call deployment-time memorization: recoverable user information stored not in model parameters, but in the external memory pipeline wrapped around a foundation model."
+     },
+     {
+      "doc_id": "arxiv:2606.10062",
+      "quote": "The five deletion modes form an ablation ladder isolating whether deletion de-memorizes only the raw record or the full pipeline across both text and embedding surfaces... Mode: raw_only (raw text scrubbed; embeddings not recomputed; summary tier untouched), raw_plus_resum. (raw scrubbed, re-embedded; affected sessions re-summarized from cleaned text), full_purge (all tiers scrubbed and re-embedded; empty chunks dropped), tombstone (canary replaced with [REDACTED] in every tier and re-embedded)."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2606.04536 (TMEM), which introduces distilled LoRA fast-weights for self-evolving agent memory but does not address machine unlearning or deletion-fidelity. The paper discusses online SFT updates to fast weights but never considers removing user-specific experience from those weights upon a 'forget me' request. No indexed document studies unlearning for the parametric tier of self-evolving agent memory.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "we distill the current session into grounded QA-style supervision and applies a lightweight online SFT update to fast LoRA weights"
+     },
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "Existing memory-augmented LLM agents store past experience exclusively in prompt space... while keeping model parameters frozen throughout a rollout."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:006",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Apply membership-inference and extraction attacks to the parametric memory of self-evolving agents (fast LoRA weights distilled from a single user's sessions) to quantify per-user privacy leakage from weight updates, not just from external stores.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.04536",
+    "arxiv:2606.10062"
+   ],
+   "quotes": [
+    "Existing memorization research primarily studies parametric memorization: what training examples are retained in model weights and can be exposed through extraction or membership-inference attacks (Carlini et al., 2021; Shokri et al., 2017).",
+    "the agent not only compresses history into explicit memory but also absorbs distilled supervision into fast LoRA weights via lightweight online updates, genuinely altering its future behavior within a single episode"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No document in the index applies membership-inference or extraction attacks to the parametric memory (fast LoRA weights) of self-evolving agents. arxiv:2606.04536 (TMEM) introduces the framework but focuses on performance gains (F1/EM), stating 'Experiments on LoCoMo, LongMemEval-S, multi-objective search, and CL-Bench show that TMEM consistently outperforms summary-based and retrieval-based baselines', with no mention of privacy analysis. The closed-world lookup for 'membership-inference attacks' and 'LoRA weights' returned no edges, indicating this specific security evaluation is absent from the indexed corpus.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "Experiments on LoCoMo, LongMemEval-S, multi-objective search, and CL-Bench show that TMEM consistently outperforms summary-based and retrieval-based baselines across different model scales."
+     },
+     {
+      "doc_id": "arxiv:2606.04536",
+      "quote": "The base parameters are fixed within a rollout but optimized across RL training; changes within the rollout and acts as fast-weight memory."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "abstain",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:007",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Use weight-matrix fingerprinting (AWM-style LAP+CKA) to verify provenance and detect tampering of distilled memory-adapters and self-evolving parametric memory, giving a lineage check for the LoRA weights agents now write at runtime.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2510.06738"
+   ],
+   "quotes": [
+    "In this work, we propose a training-free fingerprinting method based on weight matrices.",
+    "there is an urgent need for both model owners and third parties to determine whether a suspect LLM is trained from scratch or derived from an existing base model."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "arxiv:2510.06738 (AWM) applies weight-matrix fingerprinting to full LLMs to detect derivation from base models, but it does not address distilled memory-adapters or self-evolving parametric memory (LoRA weights written at runtime), nor does it evaluate its method on such modular or transient components.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.06738",
+      "quote": "In this work, we propose a training-free fingerprinting method based on weight matrices. We leverage the Linear Assignment Problem (LAP) and an unbiased Centered Kernel Alignment (CKA) similarity to neutralize the effects of parameter manipulations, yielding a highly robust and high-fidelity similarity metric."
+     },
+     {
+      "doc_id": "arxiv:2510.06738",
+      "quote": "We validate our approach on a comprehensive test set of 60 positive (base-offspring) and 90 negative (independent) model pairs... [including] SFT, extensive continued pretraining... reinforcement learning, multi-modal extension, pruning, and upcycling."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2510.06738, which proposes weight-matrix fingerprinting for full LLM weights to detect model lineage, but it does not apply to distilled memory-adapters, self-evolving parametric memory, or LoRA weights written at runtime. The paper's method targets static, full-model weights, not dynamic, runtime-written adapters, so the proposed gap remains unaddressed.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.06738",
+      "quote": "In this work, we propose a training-free fingerprinting method based on weight matrices."
+     },
+     {
+      "doc_id": "arxiv:2510.06738",
+      "quote": "there is an urgent need for both model owners and third parties to determine whether a suspect LLM is trained from scratch or derived from an existing base model."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:009",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Persist GroundShot-style entity-grounded visual memory across sessions and tasks as a reusable multimodal agent memory, rather than rebuilding it per-video, so a video/image agent recalls a character's canonical appearance across separate generation jobs.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2606.20799"
+   ],
+   "quotes": [
+    "GroundShot builds an entity-level visual memory online from accepted generated shots",
+    "generation order by their expected usefulness as entity references, grounds entities from generated videos, verifies their reliability before adding them to memory, and retrieves suitable entity references from memory before each shot is generated."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "arxiv:2605.28806 (VisualMem) addresses persistent visual memory for personalization and QA, not for generative entity grounding across sessions; it resolves identity via conversational context rather than building entity-level references from generated shots for retrieval during generation.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2605.28806",
+      "quote": "VisualMem uses conversational context to resolve identity, ownership, and durable user facts."
+     },
+     {
+      "doc_id": "arxiv:2605.28806",
+      "quote": "Long-term memory is increasingly important for personalized AI agents... VisualMem substantially outperforms prior memory systems on our benchmark"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "No document in the index demonstrates reusing GroundShot-style entity-grounded visual memory across separate sessions or tasks. The GroundShot paper itself only describes building memory online within a single multi-shot generation job, not persisting it across different generation jobs. The nearest miss is the GroundShot paper itself, which explicitly states 'builds an entity-level visual memory online from accepted generated shots' but does not address cross-session reuse.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.20799",
+      "quote": "GroundShot builds an entity-level visual memory online from accepted generated shots"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:010",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Benchmark and build cross-lingual / code-switching long-term conversational memory, where write-time and query-time languages differ across sessions, since current long-term-memory benchmarks (BEAM, LoCoMo) are monolingual English personal-life dialogues.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2510.27246",
+    "arxiv:2606.04536"
+   ],
+   "quotes": [
+    "these datasets typically target narrow domains—often limited to personal-life scenarios—leaving many real-world application areas underrepresented.",
+    "multi-session conversations, extended web-search trajectories, iterative tool use, and evolving user preferences"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document addresses cross-lingual or code-switching long-term memory; the indexed BEAM benchmark is explicitly monolingual and narrow, confirming the gap rather than closing it.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.27246",
+      "quote": "these datasets typically target narrow domains—often limited to personal-life scenarios—leaving many real-world application areas underrepresented."
+     },
+     {
+      "doc_id": "arxiv:2510.27246",
+      "quote": "we employ FAISS as the vector database... For dense retrieval, we use the embedding model BAAI/bge-small-en-v1.5"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2510.27246 (BEAM) is a long-term memory benchmark but is monolingual English, as it uses an English embedding model (BAAI/bge-small-en-v1.5) and generates English conversations. No document in the index addresses cross-lingual or code-switching long-term memory benchmarks, so the gap stands unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2510.27246",
+      "quote": "These key–value pairs and summaries are embedded using the BAAI/bge-small-en-v1.5 embedding model"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:011",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Test whether goal-directed RL search over uncompressed memory (SUMER) still beats compression on multimodal and tool-trajectory memory, not just text conversation, and characterize where the bitter-lesson search advantage breaks under non-text raw data.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2511.21726",
+    "arxiv:2512.03627"
+   ],
+   "quotes": [
+    "We demonstrate that a simple search method applied to raw data outperforms goal-agnostic and biased compression algorithms in current long-context memory tasks, arguing for new paradigms and benchmarks that are more dynamic and autonomously scalable.",
+    "such systems maintain raw interaction logs without abstraction or consolidation, leading to redundancy, retrieval noise, and escalating computational cost as the database grows."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The SUMER paper (arxiv:2511.21726) demonstrates goal-directed RL search over uncompressed memory but exclusively on text-based conversational datasets (LoCoMo), leaving multimodal and tool-trajectory domains unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.21726",
+      "quote": "On the LoCoMo dataset for long-context conversation understanding, SUMER with Qwen2.5-7B-Instruct learned to use search tools and outperformed all other biased memory compression approaches"
+     },
+     {
+      "doc_id": "arxiv:2511.21726",
+      "quote": "We demonstrate that a simple search method applied to raw data outperforms goal-agnostic and biased compression algorithms in current long-context memory tasks"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2512.03627 (MemVerse) applies memory methods to multimodal data but uses compression (knowledge graphs and parametric distillation) rather than goal-directed RL search over raw uncompressed memory. The SUMER method (arxiv:2511.21726) is only evaluated on text conversation (LoCoMo) and not on multimodal or tool-trajectory memory. No in-index document tests goal-directed RL search over uncompressed memory on non-text raw data.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.21726",
+      "quote": "On the LoCoMo dataset for long-context conversation understanding"
+     },
+     {
+      "doc_id": "arxiv:2511.21726",
+      "quote": "How to enable human-like long-term memory in large language models (LLMs) has been a central question"
+     },
+     {
+      "doc_id": "arxiv:2512.03627",
+      "quote": "We introduce a periodic distillation mechanism that compresses essential knowledge from the cognitive graph into the parametric model"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:013",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Design a native data-management engine for Governed Evolving Memory (state-trajectory correctness with ingestion/revision/forgetting/retrieval operators) rather than layering it on a property-graph backend, since the corpus only prototypes GEM on an existing store.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2605.26252"
+   ],
+   "quotes": [
+    "We formalize this as Governed Evolving Memory (GEM). GEM replaces record-level database operations with four state-level operators: ingestion, revision, forgetting, and retrieval.",
+    "We realize the abstraction in MemState, a prototype on a property-graph backend. MemState validates feasibility and exposes the gap to a native engine."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "arxiv:2605.26252 defines GEM and explicitly identifies the lack of a native engine as an open research gap, stating that MemState is merely a prototype on a property-graph backend and that 'no current engine targets' this workload.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2605.26252",
+      "quote": "We realize the abstraction in MemState, a prototype on a property-graph backend. MemState validates feasibility and exposes the gap to a native engine."
+     },
+     {
+      "doc_id": "arxiv:2605.26252",
+      "quote": "These are not implementation gaps; they are research directions for a data-management workload that no current engine targets."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2605.26252, which prototypes GEM on a property-graph backend and explicitly exposes the gap to a native engine, stating 'What MemState exposes. The substrate is a compatibility layer, not a native expression of GEM... These are not implementation gaps; they are research directions for a data-management workload that no current engine targets.' No document in the index implements a native engine for GEM, so the gap remains open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2605.26252",
+      "quote": "We realize the abstraction in MemState, a prototype on a property-graph backend. MemState validates feasibility and exposes the gap to a native engine."
+     },
+     {
+      "doc_id": "arxiv:2605.26252",
+      "quote": "What MemState exposes. The substrate is a compatibility layer, not a native expression of GEM... These are not implementation gaps; they are research directions for a data-management workload that no current engine targets."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:015",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Study poisoning propagation and provenance in shared/federated agentic memory (Spark-style community memory), where one poisoned experience contributed by a single agent contaminates every agent drawing from the shared pool.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2511.08301"
+   ],
+   "quotes": [
+    "we propose a shared agentic memory layer, a space in which multiple agents jointly contribute, develop, and refine knowledge"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The nearest miss is arxiv:2511.08301, which proposes the Spark shared agentic memory architecture but focuses solely on code quality improvement and does not address security, poisoning propagation, or provenance tracking of contributed experiences.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.08301",
+      "quote": "We introduce Spark, a novel shared agentic memory architecture which is designed to emulate the collective intelligence and know-how of human developer communities."
+     },
+     {
+      "doc_id": "arxiv:2511.08301",
+      "quote": "We evaluate Spark as a coach for AI coding agents performing software development tasks. We demonstrate that recommendations made by Spark improve the quality of code generated by generic code generation models"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2511.08301 proposes a shared agentic memory (Spark) but does not consider poisoning propagation, security, or adversarial contamination. No indexed document studies this threat model, so the gap remains open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.08301",
+      "quote": "we propose a shared agentic memory layer, a space in which multiple agents jointly contribute, develop, and refine knowledge"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:016",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Exploit diffusion LMs' data efficiency (super-dense compute, Monte-Carlo augmentation) for the data-scarce regime of personalized memory modeling, where each user provides few tokens, transferring the DLM crossover advantage from low-resource pretraining to per-user adaptation.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2511.03276",
+    "arxiv:2512.04763"
+   ],
+   "quotes": [
+    "Under limited unique data, DLMs surpass AR models of the same size; the crossover is robust across data budgets, model scales, and sparsity choices.",
+    "they cannot retain information across multiple conversations or maintain long-term user-specific knowledge."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "The indexed memory system MemLoRA (arxiv:2512.04763) solves long-term personalized memory using Small Language Models (SLMs) with LoRA adapters and standard next-token prediction, not Diffusion Language Models. No indexed document applies DLMs to memory modeling.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.04763",
+      "quote": "In this paper, we introduce (i) MemLoRA, a novel memory system that enables local deployment by equipping SLMs with specialized memory adapters"
+     },
+     {
+      "doc_id": "arxiv:2512.04763",
+      "quote": "train each expert adapter using standard next-token prediction with cross-entropy loss"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "No indexed document applies diffusion LM data-efficiency techniques to personalized memory modeling. The closest evidence is arxiv:2511.03276 which demonstrates DLMs' data efficiency in pretraining but never addresses per-user adaptation or memory; and arxiv:2512.04763 which notes that existing methods 'cannot retain information across multiple conversations or maintain long-term user-specific knowledge' but does not propose DLMs as a solution. Thus the transfer gap stands unexamined.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2511.03276",
+      "quote": "Under limited unique data, DLMs surpass AR models of the same size; the crossover is robust across data budgets, model scales, and sparsity choices."
+     },
+     {
+      "doc_id": "arxiv:2512.04763",
+      "quote": "they cannot retain information across multiple conversations or maintain long-term user-specific knowledge."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:017",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Extend black-box forensics of conversational agents to detect and attribute persistent memory: determine black-box whether an endpoint carries cross-session memory and whether that memory has been poisoned, from ordinary conversation alone.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2512.16962",
+    "arxiv:2606.22698"
+   ],
+   "quotes": [
+    "Detecting when two endpoints run the exact same system prompt (fingerprinting), even one novel and unseen, would link individual scams into criminal networks and expose silent API changes.",
+    "leading to persistent behavioral drift across sessions"
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2512.16962 (MemoryGraft) describes a memory poisoning attack that causes persistent behavioral drift, but it does not provide a black-box forensic method to detect or attribute this memory state from ordinary conversation; it focuses on the attack mechanism, not detection.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.16962",
+      "quote": "We introduce MemoryGraft. It is a novel indirect injection attack that compromises agent behavior not through immediate jailbreaks, but by implanting malicious successful experiences into the agent’s long-term memory."
+     },
+     {
+      "doc_id": "arxiv:2512.16962",
+      "quote": "leading to persistent behavioral drift across sessions"
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2512.16962 demonstrates a persistent memory poisoning attack (MemoryGraft) but does not propose any method for black-box detection or attribution of such memory from conversation alone. The document focuses on attack methodology, not forensic detection, so the claimed gap remains unaddressed.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.16962",
+      "quote": "MemoryGraft is a persistent memory poisoning attack that exploits the semantic imitation heuristic."
+     },
+     {
+      "doc_id": "arxiv:2512.16962",
+      "quote": "The compromise remains active until the memory store is explicitly purged or replaced."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:claude:018",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Apply FP4 quantization-aware training (DeepSeek-V4's expert-weight and QK-path FP4 QAT) to distilled memory-operation adapters (MemLoRA) to shrink on-device memory systems below current SLM+adapter footprints.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2512.04763",
+    "arxiv:2606.19348"
+   ],
+   "quotes": [
+    "we incorporate FP4 quantization-aware training for MoE expert weights and the indexer QK path to reduce memory and computation.",
+    "each adapter is trained separately for specific memory operations—knowledge extraction, memory update, and memory-augmented generation."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies FP4 QAT to memory adapters; MemLoRA (arxiv:2512.04763) uses standard distillation, and DeepSeek-V4 applies FP4 only to MoE experts.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2512.04763",
+      "quote": "The memory adapters are trained via distilling knowledge from the large model... standard next-token prediction with cross-entropy loss"
+     },
+     {
+      "doc_id": "arxiv:2606.19348",
+      "quote": "we incorporate FP4 quantization-aware training for MoE expert weights and the indexer QK path to reduce memory and computation."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies FP4 quantization-aware training to distilled memory-operation adapters. The nearest miss (arxiv:2606.19348) applies FP4 QAT only to MoE expert weights and the indexer QK path within DeepSeek-V4, not to any form of memory adapter. The gap remains open.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2606.19348",
+      "quote": "we incorporate FP4 quantization-aware training for MoE expert weights and the indexer QK path to reduce memory and computation."
+     }
+    ],
+    "evidence_tier": "verified_exact",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ },
+ {
+  "candidate_id": "FG:qwen:002",
+  "template": "T1",
+  "status": "survived",
+  "claim": "Apply Reinforcement Learning (RL) to optimize memory retrieval policies in agent systems like Mem0 and A-Mem specifically for multi-hop reasoning tasks on 2WikiMultiHopQA, rather than general conversational consistency.",
+  "score": null,
+  "grounds": {
+   "doc_ids": [
+    "arxiv:2502.12110",
+    "arxiv:2605.26252",
+    "arxiv:2607.13591"
+   ],
+   "quotes": [
+    "We present MemCon (Memory as a Controlled Process), a framework that models memory operations as a Markov Decision Process and learns an online policy that adaptively decides when, what, and how much to retrieve",
+    "RL-driven (Mem-, Memory-R1) | None | None | None | None | Learned update policies",
+    "To address this limitation, this paper proposes a novel agentic memory system for LLM agents that can dynamically organize memories in an agentic way."
+   ]
+  },
+  "stale_grounds": false,
+  "verdicts": [
+   {
+    "stage": "A",
+    "role": "critic_1",
+    "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+    "verdict": "survive",
+    "refutation_claim": "No in-index document applies Reinforcement Learning to memory retrieval optimization specifically for multi-hop reasoning on 2WikiMultiHopQA. A-MEM (arxiv:2502.12110) uses LLM-based dynamic structuring and similarity matching, not RL. MemCon (cited in grounds) uses RL for memory policies but the available evidence does not link it to 2WikiMultiHopQA evaluation, and A-MEM's evaluation is on LoCoMo (conversational).",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2502.12110",
+      "quote": "We present A-Mem, an agentic memory system for LLM agents that enables autonomous generation of contextual descriptions, dynamic establishment of memory connections, and intelligent evolution of existing memories based on new experiences."
+     },
+     {
+      "doc_id": "arxiv:2502.12110",
+      "quote": "To evaluate the effectiveness of instruction-aware recommendation in long-term conversations, we utilize the LoCoMo dataset [22]... Besides, we use a new dataset, named DialSim [16]"
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "A",
+    "role": "critic_2",
+    "model": "deepseek-v4-flash",
+    "verdict": "survive",
+    "refutation_claim": "Nearest miss: arxiv:2502.12110 (A-MEM) addresses multi-hop reasoning on LoCoMo (not 2WikiMultiHopQA) using an agentic heuristic memory system, not RL-based optimization of retrieval policies. The method 'MemCon' mentioned in the grounds is described as a Markov Decision Process but is not applied to 2WikiMultiHopQA. No indexed document applies RL to optimize memory retrieval for multi-hop reasoning on 2WikiMultiHopQA.",
+    "evidence": [
+     {
+      "doc_id": "arxiv:2502.12110",
+      "quote": "Our A-Mem consistently outperforms all baselines across different categories, demonstrating the effectiveness of our agentic memory approach. ... our A-Mem demonstrates superior performance in Multi-Hop tasks achieves at least two times better performance that require complex reasoning chains."
+     }
+    ],
+    "evidence_tier": "verified_fuzzy",
+    "feasibility": "feasible",
+    "confidence_bucket": "more_probable"
+   },
+   {
+    "stage": "D",
+    "role": "stage_d",
+    "model": "claude-cli",
+    "verdict": "survive",
+    "refutation_claim": null,
+    "evidence": [],
+    "evidence_tier": null,
+    "feasibility": null,
+    "confidence_bucket": null
+   }
+  ]
+ }
+]

@@ -1,0 +1,504 @@
+[
+  {
+    "candidate_id": "FG:qwen:004",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Integrating AbstRAG's reflective abstraction refinement with Agentic RL to solve multi-hop reasoning tasks on HotpotQA, addressing the abstraction gap in complex query decomposition.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2303.11366",
+        "arxiv:2606.09459"
+      ],
+      "quotes": [
+        "To close this gap, we introduce AbstRAG, which treats abstraction as an explicit retrieval object.",
+        "Its central mechanism is reflective refinement: a critic diagnoses retrieval failures, localizes the failed abstraction operator, proposes a minimal stage-specific patch, and accepts the patch only under sufficiency and compression controls.",
+        "We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback."
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "kill",
+        "refutation_claim": "arxiv:2303.11366 (Reflexion) already applies Agentic RL to multi-hop reasoning on HotpotQA, using verbal reflection to improve performance, which closes the gap of integrating Agentic RL for this task.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2303.11366",
+            "quote": "Reflexion improves performance over strong baselines by 22% in AlfWorld, 20% in HotPotQA..."
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "kill",
+        "refutation_claim": "The Reflexion paper (arxiv:2303.11366) already applies a reflective refinement + RL framework (verbal reinforcement) to HotpotQA, achieving a 20% improvement, thus closing the proposed gap.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2303.11366",
+            "quote": "Reflexion outperforms all baseline approaches by significant margins over several learning steps... on reasoning questions in HotPotQA by 20%"
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "resurrect",
+        "role": "resurrector",
+        "model": "claude-cli",
+        "verdict": "survive",
+        "refutation_claim": "Both kills rest entirely on quotes attributed to arxiv:2303.11366 whose source spans read '(quote not located in the cited document)' \u2014 the refutation evidence is unverified within the dossier, so neither critic actually demonstrates from the source that Reflexion closes the gap. Moreover, the located AbstRAG span (arxiv:2606.09459) defines the novel object as abstraction-operator patching under sufficiency/compression controls, which Reflexion's verbal self-reflection does not address; the kills conflate the two mechanisms.",
+        "evidence": [],
+        "evidence_tier": null,
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  },
+  {
+    "candidate_id": "FG:qwen:010",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Use an LLM-as-a-Judge to dynamically score and prune historical steps in Agentic Context Engineering (ACE) based on their real-time utility to the current decision, replacing static orchestration heuristics.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2606.18103",
+        "arxiv:2606.31564",
+        "arxiv:2607.01935"
+      ],
+      "quotes": [
+        "ACE maintains a lossless message maintenance layer that stores both raw messages and compressed abstractions for each historical step, while a context orchestration layer adaptively assigns each step an elastic type as raw, abstract, or drop, at every decision step based on the current task state.",
+        "We propose A-TMA, a state aware overlay for existing memory systems that keeps superseded and transition records, builds evidence packets for the requested state view, and exposes current, historical, and transition labels to QA.",
+        "We evaluate these interventions using SPIEGELragged, an implementation applied to 102,189 articles from the news journal Der Spiegel (1950\u20131979)."
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "survive",
+        "refutation_claim": "No indexed document implements LLM-as-a-Judge for dynamic pruning of historical steps in Agentic Context Engineering (ACE). The only detailed document, arxiv:2606.18103 (HistoRAG), uses LLM-as-a-Judge for post-retrieval relevance filtering of historical documents, not for pruning agentic steps based on real-time utility. The quote attributed to this doc in the candidate's grounds regarding 'ACE' appears to be misattributed or hallucinated, as the text describes HistoRAG's historiographical interventions.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.18103",
+            "quote": "We introduce HistoRAG, a framework that translates historiographical principles into concrete architectural interventions... LLM-as-judge evaluation makes relevance judgments transparent and contestable."
+          },
+          {
+            "doc_id": "arxiv:2606.18103",
+            "quote": "Third, LLM-as-judge evaluation introduces historian-defined criteria into post-retrieval filtering, turning algorithmic selection from a black box into a transparent, argumentative process whose justifications can be reviewed and contested."
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "survive",
+        "refutation_claim": "Nearest miss: arxiv:2606.18103 uses LLM-as-Judge for post-retrieval evaluation of chunks, not for dynamically scoring and pruning historical steps in an agentic context. The candidate's gap\u2014using LLM-as-a-Judge to replace static orchestration heuristics in ACE\u2014remains unaddressed in the index.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.18103",
+            "quote": "LLM-as-judge evaluation introduces historian-defined criteria into post-retrieval filtering, turning algorithmic selection from a black box into a transparent, argumentative process whose justifications can be reviewed and contested."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "D",
+        "role": "stage_d",
+        "model": "claude-cli",
+        "verdict": "kill",
+        "refutation_claim": "The candidate's core novelty \u2014 dynamically scoring/pruning historical steps by real-time utility, 'replacing static orchestration heuristics' \u2014 is contradicted by its own grounds: ACE's orchestration layer is already described as adaptively dropping steps at every decision step based on current task state, so the baseline is not static and the proposed dynamic pruning already exists in the cited system. Both same-family critics fixated on the LLM-as-Judge/HistoRAG angle and never checked whether the grounds' own ACE quote already implements the proposed dynamic behavior.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.18103",
+            "quote": "a context orchestration layer adaptively assigns each step an elastic type as raw, abstract, or drop, at every decision step based on the current task state"
+          }
+        ],
+        "evidence_tier": "failed",
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  },
+  {
+    "candidate_id": "FG:qwen:011",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Integrating dynamic long-term conversational memory mechanisms (e.g., vector-based retrieval of past conversation turns or history compression) into the BrainPilot agent harness to support iterative, multi-session scientific research workflows where static curated knowledge bases are insufficient for tracking evolving hypotheses and feedback.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2607.15079"
+      ],
+      "quotes": [
+        "A principal investigator (PI) agent coordinates specialist agents grounded in curated domain knowledge: a unified brain science knowledge base containing 7,233 indexed items and a skill library of 72 reusable methodology units across seven research domains."
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "abstain",
+        "refutation_claim": null,
+        "evidence": [],
+        "evidence_tier": null,
+        "feasibility": null,
+        "confidence_bucket": null
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "abstain",
+        "refutation_claim": null,
+        "evidence": [],
+        "evidence_tier": null,
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  },
+  {
+    "candidate_id": "FG:qwen:017",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Apply AM-Sentry to monitor and evaluate the safety of memory retrieval and storage mechanisms in multi-agent systems like Agora, specifically checking for prompt injection via memory buffers.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2606.19135",
+        "arxiv:2606.29194"
+      ],
+      "quotes": [
+        "This study develops a technical taxonomy to classify and analyze LLM agent communication protocols.",
+        "Agora is the system we build to test SJS empirically: five role-specialized LLM agent classes communicating through three typed channels, jointly evolving eight skill libraries, with the alpha-side libraries built on the AlphaGen operator vocabulary."
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "abstain",
+        "refutation_claim": null,
+        "evidence": [],
+        "evidence_tier": null,
+        "feasibility": null,
+        "confidence_bucket": null
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "survive",
+        "refutation_claim": "Nearest miss: arxiv:2607.06595 introduces AM-Sentry for personal assistant agents but does not apply it to multi-agent systems like Agora, nor does it address prompt injection via memory buffers in a multi-agent context. The candidate gap remains unaddressed.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2607.06595",
+            "quote": "We also propose Agentic Memory Sentry (AM-Sentry), which leverages two mitigation techniques: a memory-saving policy and a memory-retrieval screen."
+          },
+          {
+            "doc_id": "arxiv:2607.06595",
+            "quote": "Personal assistant agents sit at the convergence of these two domains and handle sensitive information while interacting with untrusted information sources, creating previously unaccounted security vulnerabilities."
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "D",
+        "role": "stage_d",
+        "model": "claude-cli",
+        "verdict": "kill",
+        "refutation_claim": "The candidate's substantive contribution \u2014 checking memory storage/retrieval for prompt injection via memory buffers \u2014 is exactly what AM-Sentry was already built to do: the very paper proposing it (2607.06595) introduces AM-Sentry to defend against GhostWriter, which poisons an agent's memory store (i.e., prompt injection via memory buffers), using a memory-saving policy and memory-retrieval screen. So the claim restates AM-Sentry's existing function rather than an open gap; the only differentiator ('multi-agent like Agora') is ungrounded, since the Agora sources concern communication protocols and skill libraries, not memory safety.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2607.06595",
+            "quote": "we introduce the novel attack vector, GhostWriter, which exploits current memory subsystems in tool-using personal agents to poison their memory store"
+          },
+          {
+            "doc_id": "arxiv:2607.06595",
+            "quote": "We also propose Agentic Memory Sentry (AM-Sentry), which leverages two mitigation techniques: a memory-saving policy and a memory-retrieval screen."
+          },
+          {
+            "doc_id": "arxiv:2606.29194",
+            "quote": "Agora is the system we build to test SJS empirically: five role-specialized LLM agent classes communicating through three typed channels, jointly evolving eight skill libraries, with the alpha-side libraries built on the AlphaGen operator vocabulary."
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  },
+  {
+    "candidate_id": "FG:qwen:022",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Applying EnergyEvals metrics to optimize the consolidation phase of Mem0-style graph-based memory systems using AgentCompress techniques to reduce energy-per-update.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2504.19413",
+        "repo:agiresearch/A-mem"
+      ],
+      "quotes": [
+        "We introduce Mem0, a scalable memory-centric architecture that addresses this issue by dynamically extracting, consolidating, and retrieving salient information from ongoing conversations.",
+        "Our project introduces an innovative **Agentic Memory** system that revolutionizes how LLM agents manage and utilize their memories"
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "survive",
+        "refutation_claim": "The Mem0 paper (arxiv:2504.19413) defines the Mem0-style graph-based memory system and its consolidation phase, but evaluates it using 'Token Consumption' and 'Latency' rather than 'EnergyEvals' metrics, and makes no mention of 'AgentCompress' techniques.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2504.19413",
+            "quote": "We systematically track Token Consumption... We further monitor Latency..."
+          },
+          {
+            "doc_id": "arxiv:2504.19413",
+            "quote": "We introduce Mem0, a scalable memory-centric architecture that addresses this issue by dynamically extracting, consolidating, and retrieving salient information from ongoing conversations."
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "survive",
+        "refutation_claim": "The gap is infeasible because EnergyEvals (arxiv:2606.26346) is a benchmark for energy market analytics tasks, not a framework for measuring energy consumption or energy-per-update of agent memory systems. It reports tokens, cost, and accuracy metrics, not energy metrics. No index document applies EnergyEvals metrics to memory consolidation or uses AgentCompress for energy reduction. The nearest miss is that EnergyEvals reports efficiency metrics (tokens, cost) but these are not energy consumption metrics and are not applied to memory systems.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.26346",
+            "quote": "We present an empirical study of tool-augmented LLM agents on real-world energy market analytics tasks."
+          },
+          {
+            "doc_id": "arxiv:2606.26346",
+            "quote": "Efficiency and cost metrics: Includes total tokens per question, tool calls, and cost per question."
+          },
+          {
+            "doc_id": "arxiv:2606.26346",
+            "quote": "We introduce EnergyEvals, an evaluation framework for tool-augmented LLM agents on real-world energy analytics tasks."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": "infeasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "D",
+        "role": "stage_d",
+        "model": "claude-cli",
+        "verdict": "kill",
+        "refutation_claim": "The gap rests on a false premise: EnergyEvals is a domain benchmark for real-world energy-market analytics tasks whose reported efficiency metrics are tokens, tool calls, and cost per question \u2014 not energy-consumption or 'energy-per-update' metrics \u2014 so there is no EnergyEvals metric that could be applied to reduce the energy-per-update of memory consolidation, making the proposed intersection incoherent rather than merely unexplored.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.26346",
+            "quote": "We introduce EnergyEvals, an evaluation framework for tool-augmented LLM agents on real-world energy analytics tasks."
+          },
+          {
+            "doc_id": "arxiv:2606.26346",
+            "quote": "We present an empirical study of tool-augmented LLM agents on real-world energy market analytics tasks."
+          },
+          {
+            "doc_id": "arxiv:2606.26346",
+            "quote": "Efficiency and cost metrics: Includes total tokens per question, tool calls, and cost per question."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  },
+  {
+    "candidate_id": "FG:qwen:033",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Integrate HALO's hallucination mitigation constraints into the short-to-long-term memory compression mechanism of Artificial Hippocampus Networks (AHN) to preserve factual integrity.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2510.07318"
+      ],
+      "quotes": [
+        "Our method maintains a sliding window of the Transformer\u2019s KV cache as lossless short-term memory, while a learnable module termed Artificial Hippocampus Network (AHN) recurrently compresses out-of-window information into a fixed-size compact long-term memory."
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "survive",
+        "refutation_claim": "No indexed document applies HALO or its constraints to Artificial Hippocampus Networks (AHN) or similar memory compression mechanisms. HALO is indexed as a method for PDDL planning orchestration cost reduction (arxiv:2606.21740) and human-aware alignment (arxiv:2402.01306), while AHN (arxiv:2510.07318) is a memory compression framework with no mention of HALO.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.21740",
+            "quote": "HALO pairs a small QLoRA-tuned policy with three hardcoded rules for trivially decidable selections, and operates over an expanded 21-agent action space."
+          },
+          {
+            "doc_id": "arxiv:2402.01306",
+            "quote": "We then propose a more general class of such loss functions called human-aware losses (HALOs)."
+          },
+          {
+            "doc_id": "arxiv:2510.07318",
+            "quote": "Our method maintains a sliding window of the Transformer\u2019s KV cache as lossless short-term memory, while a learnable module termed Artificial Hippocampus Network (AHN) recurrently compresses out-of-window information into a fixed-size compact long-term memory."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "survive",
+        "refutation_claim": "No document in the index integrates HALO's constraints into AHN's compression mechanism. The AHN paper (arxiv:2510.07318) focuses on efficient long-context modeling and does not address hallucination mitigation. The nearest miss is the AHN paper itself, which lacks any mention of HALO or factual integrity constraints, so the proposed integration remains unexplored.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2510.07318",
+            "quote": "Our method maintains a sliding window of the Transformer\u2019s KV cache as lossless short-term memory, while a learnable module termed Artificial Hippocampus Network (AHN) recurrently compresses out-of-window information into a fixed-size compact long-term memory."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "D",
+        "role": "stage_d",
+        "model": "claude-cli",
+        "verdict": "kill",
+        "refutation_claim": "The gap rests on a false premise: the candidate attributes 'hallucination mitigation constraints' to HALO, but no indexed HALO document is a hallucination-mitigation method \u2014 HALO is a PDDL-planning orchestrator (arxiv:2606.21740) and HALOs are a class of human-aware alignment losses (arxiv:2402.01306). There are no 'HALO hallucination mitigation constraints' in the dossier to integrate into AHN, so the proposed integration is incoherent as stated.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.21740",
+            "quote": "We present HALO (Hybrid Agent-Learned Orchestrator), which trains the orchestrator from refinement trajectories that an external verifier has certified as ending in valid plans, across 11 PDDL domains."
+          },
+          {
+            "doc_id": "arxiv:2402.01306",
+            "quote": "We then propose a more general class of such loss functions called human-aware losses (HALOs)."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  },
+  {
+    "candidate_id": "FG:claude:012",
+    "template": "T1",
+    "status": "contested",
+    "claim": "Use on-policy distillation (DeepSeek-V4's reverse-KL consolidation of domain experts into one model) as a mechanism to consolidate an agent's episodic experiences into a unified policy, replacing textual summarization as the memory-consolidation operator.",
+    "score": null,
+    "grounds": {
+      "doc_ids": [
+        "arxiv:2606.04536",
+        "arxiv:2606.19348"
+      ],
+      "quotes": [
+        "Finally, to integrate these distinct proficiencies, a single unified model is trained through on-policy distillation, wherein the unified model acts as the student learning to optimize the reverse KL loss with teacher models.",
+        "the learned policy itself does not change during the episode"
+      ]
+    },
+    "stale_grounds": false,
+    "verdicts": [
+      {
+        "stage": "A",
+        "role": "critic_1",
+        "model": "Qwen3.6-35B-A3B-oQ8-fp16-mtp",
+        "verdict": "kill",
+        "refutation_claim": "arxiv:2606.04536 (TMEM) already closes this gap by consolidating episodic experiences into a unified policy via parametric memory (online LoRA updates), explicitly replacing textual summarization as the memory operator and optimizing this process via on-policy RL.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "Existing memory-augmented LLM agents store past experience exclusively in prompt space, as textual summaries or retrieved passages... We introduce TMEM, a self-evolving parametric memory framework in which the agent not only compresses history into explicit memory but also absorbs distilled supervision into fast LoRA weights via lightweight online updates, genuinely altering its future behavior within a single episode."
+          },
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "In TMEM, the extraction action is structured as QA-style supervision: it is absorbed into [fast weights] through [online SFT/LoRA update], while no textual memory is carried forward. In the summary-only baseline, the fast weights remain unchanged and the extracted summary is carried forward as explicit prompt-space memory."
+          },
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "We therefore formalize agent execution as a fast-weight rollout in which ordinary task actions, memory-writing actions, explicit-memory updates, and LoRA updates are part of one decision process. During RL training... is optimized across rollouts"
+          }
+        ],
+        "evidence_tier": "verified_fuzzy",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "A",
+        "role": "critic_2",
+        "model": "deepseek-v4-flash",
+        "verdict": "kill",
+        "refutation_claim": "arxiv:2606.04536 (TMEM) already applies online distillation (via LoRA-based fast-weight updates) to consolidate episodic experiences into a unified policy, replacing textual summarization as the memory-consolidation operator. The paper explicitly states its goal is to 'write useful experience into its own parameters at test time' and evaluates against summary-based baselines.",
+        "evidence": [
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "We introduce TMEM, a self-evolving parametric memory framework in which the agent not only compresses history into explicit memory but also absorbs distilled supervision into fast LoRA weights via lightweight online updates, genuinely altering its future behavior within a single episode."
+          },
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "can an LLM agent write useful experience into its own parameters at test time, so that memory shapes the policy rather than merely occupying the prompt?"
+          },
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "Unlike these methods, which mostly evolve across episodes, tasks, or outer-loop updates, TMEM performs intra-episode parametric self-evolution: distilled experience is written into fast LoRA weights during a single rollout, so the policy itself changes in real time rather than only consulting external memories or revised prompts."
+          },
+          {
+            "doc_id": "arxiv:2606.04536",
+            "quote": "the learned policy itself does not change during the episode. The agent can consult stored experience, but it cannot internalize that experience into the computation used for later decisions."
+          }
+        ],
+        "evidence_tier": "verified_exact",
+        "feasibility": "feasible",
+        "confidence_bucket": "more_probable"
+      },
+      {
+        "stage": "resurrect",
+        "role": "resurrector",
+        "model": "claude-cli",
+        "verdict": "survive",
+        "refutation_claim": "The located spans of arxiv:2606.04536 (TMEM) describe a different operator and setting than the candidate: TMEM does 'intra-episode parametric self-evolution... during a single rollout' via online LoRA fast-weight updates, explicitly contrasted with methods that 'evolve across episodes' \u2014 whereas the candidate proposes DeepSeek-V4's (arxiv:2606.19348) multi-teacher reverse-KL on-policy distillation as the operator for consolidating accumulated episodic experiences into a unified policy, a mechanism (reverse-KL distillation from teacher models) TMEM never uses. Additionally, all of critic_1's supporting quotes (QA-style supervision, summary-only baseline) are marked 'quote not located in the cited document,' so its refutation rests on unverified evidence.",
+        "evidence": [],
+        "evidence_tier": null,
+        "feasibility": null,
+        "confidence_bucket": null
+      }
+    ]
+  }
+]
