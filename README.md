@@ -55,6 +55,8 @@ post-cutoff paper closes the claim; scoring evidence must come from the index).
 | **Qwen3.6-35B + graph tools** | 44 | **10** | **23%** |
 | **Claude + graph tools** | 30 | **13** | **43%** |
 
+![Validated hits per proposal, by setup](docs/images/backtest-results.png)
+
 Graph tools lifted the local model **10x** — to parity with tool-less Claude —
 and lifted Claude 1.8x. Pure structural templates were not competitive as
 proposers, which is why they were demoted to leads. Zero contamination LEAKs
